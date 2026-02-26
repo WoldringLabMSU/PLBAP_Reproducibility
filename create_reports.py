@@ -204,20 +204,27 @@ def ask_yn(question, default=None):
         print(warn("  Please enter y or n"))
 
 
-def multiselect(field_name, description, options):
+def multiselect(field_name, description, options, current=None):
     """
     Numbered multi-select for array fields (failure_modes, barriers_to_attempt).
-    Returns a list. Enter with empty = empty list.
+    Returns a list, SENTINEL_SKIP (keep existing), or SENTINEL_UNDO.
+    If current is not None, Enter keeps the existing value instead of clearing.
+    Type 'clear' to explicitly empty the list.
     """
     print()
     print(f"  {label(field_name)}")
     if description:
         print(wrap(description))
+    if current is not None:
+        print(hint(f"  Current: {current}"))
     print()
     for i, opt in enumerate(options):
         print(f"    {clr(str(i+1), CYAN)}  {opt}")
     print()
-    print(hint("  Enter numbers separated by spaces/commas, or enter to leave empty."))
+    if current is not None:
+        print(hint("  Enter numbers separated by spaces/commas, enter to keep current, or 'clear' to empty."))
+    else:
+        print(hint("  Enter numbers separated by spaces/commas, or enter to leave empty."))
     print(hint("  Example: 1 3 5   or   1,3,5"))
 
     while True:
@@ -229,7 +236,11 @@ def multiselect(field_name, description, options):
             raise SystemExit(0)
         if raw in ("!undo", "!u"):
             return SENTINEL_UNDO
+        if raw.lower() == "clear":
+            return []
         if raw == "":
+            if current is not None:
+                return SENTINEL_SKIP   # keep the existing selection
             return []
 
         # Parse numbers or direct names
@@ -317,9 +328,21 @@ def field(doc, key_path, field_name, description, type_hint="str",
 def array_field(doc, key_path, field_name, description, options,
                 undo_stack=None, out_path=None):
     """Prompt for an array field with multi-select UX."""
-    value = multiselect(field_name, description, options)
+    # Peek at existing value so resume can show it and offer to keep it
+    try:
+        _parent = doc
+        for k in key_path:
+            _parent = _parent[k]
+        current = _parent.get(field_name) if isinstance(_parent, dict) else None
+    except (KeyError, TypeError):
+        current = None
+
+    value = multiselect(field_name, description, options, current=current)
     if value is SENTINEL_UNDO:
         return "undo"
+    if value is SENTINEL_SKIP:
+        print(f"  {ok('↩')} {label(field_name)} kept: {clr(repr(current), WHITE)}")
+        return "skip"
     parent = doc
     for k in key_path:
         parent = parent[k]
