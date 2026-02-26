@@ -245,8 +245,6 @@
       "additionalProperties": false,
       "properties": {
         "pearson_r": { "type": ["number", "null"] },
-        "rmse":      { "type": ["number", "null"] },
-        "rmse_unit": { "type": ["string", "null"] },
         "notes":     { "type": ["string", "null"] }
       }
     }

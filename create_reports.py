@@ -441,13 +441,7 @@ def blank_template(model_name):
                 "target_unit": None,
                 "target_normalized": None,
             },
-            "reported_scoring_power": {
-                "pearson_r": None,
-                "rmse": None,
-                "rmse_unit": None,
-                "notes": None,
-            },
-            "reported_scoring_power_md": None,
+            "reported_scoring_power": None,
         },
         "artifacts": {
             "data_repo": None,
@@ -527,43 +521,22 @@ def section_casf(doc, undo_stack, out_path):
     for name, desc, th, allowed in [
         ("year",      "CASF benchmark year (usually 2016).", "int", None),
         ("n_complexes","Number of complexes (usually 285).", "int", None),
-        ("target",    "Target label as stated in paper, e.g. 'pKd', 'pKi', 'pK', 'binding affinity'.",
-         "str", None),
-        ("target_unit","Unit as stated in paper, e.g. 'pK units', 'kcal/mol'.", "str", None),
-        ("target_normalized",
-         "Normalized target type for cross-model comparison.\n"
-         "  Use 'pK_unspecified' when paper writes 'pK' or 'binding affinity' without distinguishing Kd/Ki/Ka.",
-         "str", TARGET_NORMALIZED),
+        ("target",    "Target label as stated in paper (usually pK)",
+         "str", None)
     ]:
         doc, _ = fill_field(doc, kp, name, desc, th, allowed,
                             undo_stack=undo_stack, out_path=out_path)
 
     divider()
     print(f"\n  {bold('Reported scoring power')} {hint('(crystal structures)')}\n")
+    if not isinstance(doc["literature"].get("reported_scoring_power"), dict):
+        doc["literature"]["reported_scoring_power"] = {"pearson_r": None, "notes": None}
+        save(doc, out_path)
     kp2 = ("literature", "reported_scoring_power")
     for name, desc, th in [
-        ("pearson_r", "Pearson R (PCC) as reported in the paper.", "num"),
-        ("rmse",      "RMSE as reported in the paper.", "num"),
-        ("rmse_unit", "Unit for RMSE, e.g. 'pK units', 'kcal/mol'.", "str"),
-        ("notes",     "Any notes on the reported metrics.", "str"),
+        ("pearson_r", "Pearson R (PCC) as reported in the paper.", "num")
     ]:
         doc, _ = fill_field(doc, kp2, name, desc, th, undo_stack=undo_stack, out_path=out_path)
-
-    existing_md = doc["literature"].get("reported_scoring_power_md")
-    if isinstance(existing_md, dict) or ask_yn("Did the paper also report MD-trajectory scoring power?", default=False):
-        if not isinstance(doc["literature"].get("reported_scoring_power_md"), dict):
-            doc["literature"]["reported_scoring_power_md"] = {
-                "pearson_r": None, "rmse": None, "rmse_unit": None, "notes": None
-            }
-            save(doc, out_path)
-        kp3 = ("literature", "reported_scoring_power_md")
-        for name, desc, th in [
-            ("pearson_r", "MD-ensemble PCC as reported.", "num"),
-            ("rmse",      "MD-ensemble RMSE as reported.", "num"),
-            ("rmse_unit", "Unit.", "str"),
-            ("notes",     "Notes.", "str"),
-        ]:
-            doc, _ = fill_field(doc, kp3, name, desc, th, undo_stack=undo_stack, out_path=out_path)
 
     return doc
 
@@ -755,7 +728,7 @@ def section_reproducibility(doc, undo_stack, out_path):
                                  default=True)
             if has_metrics:
                 doc["reproducibility"]["reproduced_metrics"] = {
-                    "pearson_r": None, "rmse": None, "rmse_unit": None, "notes": None
+                    "pearson_r": None
                 }
                 save(doc, out_path)
             else:
@@ -765,9 +738,6 @@ def section_reproducibility(doc, undo_stack, out_path):
             kp2 = ("reproducibility", "reproduced_metrics")
             for name, desc, th in [
                 ("pearson_r", "Reproduced PCC.", "num"),
-                ("rmse",      "Reproduced RMSE.", "num"),
-                ("rmse_unit", "RMSE unit.", "str"),
-                ("notes",     "Notes on reproduced metrics.", "str"),
             ]:
                 doc, _ = fill_field(doc, kp2, name, desc, th,
                                     undo_stack=undo_stack, out_path=out_path)
