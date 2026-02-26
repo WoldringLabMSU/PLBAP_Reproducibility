@@ -188,6 +188,33 @@ SENTINEL_SKIP = object()
 SENTINEL_UNDO = object()
 
 
+def _prompt_overwrite(field_name, current):
+    """
+    Display the current (non-null) value of a field and ask whether to keep or overwrite.
+    Returns 'keep', 'overwrite', or 'undo'.
+    """
+    print()
+    print(f"  {label(field_name)} {hint('— current value:')}")
+    if isinstance(current, list):
+        print(f"    {clr(str(current), WHITE)}")
+    else:
+        print(f"    {clr(repr(current), WHITE)}")
+    while True:
+        try:
+            raw = input(f"  {hint('[enter/k=keep  o=overwrite  !undo  !quit]')} > ").strip().lower()
+        except (EOFError, KeyboardInterrupt):
+            raise SystemExit(0)
+        if raw in ("!quit", "!q"):
+            raise SystemExit(0)
+        if raw in ("!undo", "!u"):
+            return "undo"
+        if raw in ("k", "keep", ""):
+            return "keep"
+        if raw in ("o", "overwrite", "w"):
+            return "overwrite"
+        print(warn("  Enter k or enter to keep, o to overwrite"))
+
+
 def ask_yn(question, default=None):
     """Simple yes/no gate. Returns True/False. Raises SystemExit on !quit."""
     opts = "[y/n]" if default is None else ("[Y/n]" if default else "[y/N]")
@@ -287,7 +314,7 @@ def field(doc, key_path, field_name, description, type_hint="str",
     key_path: tuple of keys/ints to navigate to the parent dict.
     Returns True normally, False if user hit !undo (caller should handle).
     """
-    # Peek at the current value so it can be shown as the default when resuming
+    # Peek at the current value so it can be shown when resuming
     try:
         _parent = doc
         for k in key_path:
@@ -295,7 +322,18 @@ def field(doc, key_path, field_name, description, type_hint="str",
         current = _parent.get(field_name) if isinstance(_parent, dict) else None
     except (KeyError, TypeError):
         current = None
-    effective_default = current if current is not None else default
+
+    if current is not None:
+        decision = _prompt_overwrite(field_name, current)
+        if decision == "keep":
+            print(f"  {ok('↩')} {label(field_name)} kept: {clr(repr(current), WHITE)}")
+            return "skip"
+        if decision == "undo":
+            return "undo"
+        # "overwrite" — fall through to prompt without using current as default
+        effective_default = default
+    else:
+        effective_default = default
 
     value = prompt_raw(field_name, description, allowed, type_hint, effective_default, optional)
 
@@ -335,6 +373,16 @@ def array_field(doc, key_path, field_name, description, options,
             _parent = _parent[k]
         current = _parent.get(field_name) if isinstance(_parent, dict) else None
     except (KeyError, TypeError):
+        current = None
+
+    if current is not None and len(current) > 0:
+        decision = _prompt_overwrite(field_name, current)
+        if decision == "keep":
+            print(f"  {ok('↩')} {label(field_name)} kept: {clr(repr(current), WHITE)}")
+            return "skip"
+        if decision == "undo":
+            return "undo"
+        # "overwrite" — proceed to multiselect without pre-showing current
         current = None
 
     value = multiselect(field_name, description, options, current=current)
