@@ -49,7 +49,7 @@
       "known_issues": null,
       "study_fork": {
         "link": "https://github.com/jeavesj/HAC-Net",
-        "changes_summary": null
+        "changes_summary": "Added a self-contained CLI script (`HACNet_CLI.py`) enabling single-pass batch inference over the CASF-2016 coreset without the original notebook workflow; added a conda environment file, a shell driver script, and a utility to merge per-complex prediction CSVs."
       }
     }
   },

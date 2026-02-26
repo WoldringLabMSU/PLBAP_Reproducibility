@@ -50,7 +50,7 @@
       "known_issues": null,
       "study_fork": {
         "link": "https://github.com/jeavesj/aescore",
-        "changes_summary": null
+        "changes_summary": "Fixed `conda env create` command typo in README; added SLURM batch submission script (`batch_predict.sb`) and a utility to merge per-complex prediction CSVs (`merge_predictions.py`)."
       }
     }
   },

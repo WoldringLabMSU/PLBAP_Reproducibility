@@ -44,7 +44,7 @@
       "known_issues": null,
       "study_fork": {
         "link": "https://github.com/jeavesj/IGModel",
-        "changes_summary": null
+        "changes_summary": "Added a full conda environment file and a utility to merge per-complex prediction CSVs; rewrote `run_scoring.sh` as a batch loop over the CASF-2016 coreset with conda module loading; added per-complex inference timing to `scripts/scoring.py`."
       }
     }
   },

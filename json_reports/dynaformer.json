@@ -52,7 +52,7 @@
       "known_issues": "\"preprocess/custom_input.py: When processing data in parallel, there may be competing data writes resulting in incorrect contents of the intermediate file (SDF), resulting in failure to output .pkl results.\"",
       "study_fork": {
         "link": "https://github.com/jeavesj/Dynaformer",
-        "changes_summary": null
+        "changes_summary": "Fixed a typo in the pocket-graph assertion (`pro_coord` vs `pro_feat`), added safe handling for empty edge index tensors, added an `rdkit_pdb2sdf()` utility to avoid OpenBabel atom-reordering; added a full conda environment file and SLURM submission scripts."
       }
     }
   },

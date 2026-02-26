@@ -44,7 +44,7 @@
       "known_issues": null,
       "study_fork": {
         "link": "https://github.com/jeavesj/EGNA",
-        "changes_summary": null
+        "changes_summary": "Added `--models_dir` argument to `predict.py` for configurable model weight paths; added `safe_copy_pdb()` to `raw_features.py` to strip alternate conformers and malformed PDB records causing Bio.PDB parse failures; made temp directory configurable via `EGNA_TMP_DIR` environment variable."
       }
     }
   },

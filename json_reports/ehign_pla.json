@@ -49,7 +49,7 @@
       "known_issues": null,
       "study_fork": {
         "link": "https://github.com/jeavesj/EHIGN_PLA",
-        "changes_summary": null
+        "changes_summary": "Added a full conda environment file; refactored `generate_pocket()` to accept an explicit CSV of complex IDs and skip already-processed entries; added None-graph filtering in `collate_fn`, a guard against empty dataloaders, and per-inference timing throughout."
       }
     }
   },

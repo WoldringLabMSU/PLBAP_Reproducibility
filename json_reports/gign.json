@@ -49,7 +49,7 @@
       "known_issues": "\"You may need to modify some file paths in the source code before running it\"",
       "study_fork": {
         "link": "https://github.com/jeavesj/gign",
-        "changes_summary": null
+        "changes_summary": "Added a full conda environment file; refactored preprocessing to accept a CSV of complex IDs and skip already-processed entries; added None-graph filtering and per-inference timing to the predict script."
       }
     }
   },

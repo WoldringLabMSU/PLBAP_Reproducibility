@@ -49,7 +49,7 @@
       "known_issues": null,
       "study_fork": {
         "link": "https://github.com/jeavesj/OnionNet-2",
-        "changes_summary": null
+        "changes_summary": "Added CPU and GPU conda environment files; added a `--name` argument to `predict.py` and changed CSV output to append mode; rewrote `run_predict.sh` as a coreset loop with automatic obabel SDF-to-PDB conversion; added SLURM submission scripts for AF3, Boltz2, and GNINA-apo docked structures."
       }
     }
   },
