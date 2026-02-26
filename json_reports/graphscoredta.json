@@ -1,0 +1,67 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "GraphScoreDTA",
+  "literature": {
+    "title": "GraphscoreDTA: optimized graph neural network for protein\u2013ligand binding affinity prediction",
+    "year": 2023,
+    "journal": "Bioinformatics",
+    "doi": "https://doi.org/10.1093/bioinformatics/btad340",
+    "volume": "39",
+    "issue": "6",
+    "data_linked": "yes",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2019 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.831,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": {
+      "link": "https://github.com/CSUBioGroup/GraphscoreDTA/releases/tag/Data",
+      "doi": null,
+      "license": "MIT",
+      "description": "preprocessed graphs"
+    },
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/CSUBioGroup/GraphscoreDTA",
+      "license": "GPL-3.0",
+      "last_commit_date": "2024-05-16",
+      "has_readme": true,
+      "readme_description": "GraphscoreDTA is an optimized graph neural network for protein-ligand binding affinity prediction that incorporates Vina distance optimization terms. The repository provides pretrained models, benchmark datasets, and code for both inference and training custom models.",
+      "install_instructions": true,
+      "explicit_versions": true,
+      "environment_file": true,
+      "install_script": false,
+      "preprocessing_scripts": false,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": true,
+      "notebook": false,
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "missing_preprocessing_code"
+    ],
+    "failure_modes": [
+      "missing_preprocessing_code"
+    ],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

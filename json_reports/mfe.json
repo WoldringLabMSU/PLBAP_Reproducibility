@@ -1,0 +1,64 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "MFE",
+  "literature": {
+    "title": "MFE - Surface-based Multimodal Protein-Ligand Binding A\ufb00inity Prediction",
+    "year": 2024,
+    "journal": "Bioinformatics",
+    "doi": "https://doi.org/10.1093/bioinformatics/btae413",
+    "volume": "40",
+    "issue": "7",
+    "data_linked": "partial",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2016 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.851,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/Sultans0fSwing/MFE",
+      "license": null,
+      "last_commit_date": "2024-03-30",
+      "has_readme": true,
+      "readme_description": "MFE is a Python project for predicting protein-ligand binding affinity using surface-based multimodal feature extraction from molecular structures. The repository provides preprocessing and training scripts targeting the PDBbind 2016 dataset.",
+      "install_instructions": true,
+      "explicit_versions": true,
+      "environment_file": true,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": false,
+      "training_scripts": true,
+      "pretrained_weights": false,
+      "notebook": false,
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "missing_weights",
+      "missing_inference_code"
+    ],
+    "failure_modes": [
+      "missing_weights",
+      "missing_inference_code"
+    ],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "PerSpect ML",
+  "literature": {
+    "title": "Persistent spectral\u2013based machine learning (PerSpect ML) for protein-ligand binding affinity prediction",
+    "year": 2021,
+    "journal": "Science Advances",
+    "doi": "https://doi.org/10.1126/sciadv.abc5329",
+    "volume": "7",
+    "issue": "19",
+    "data_linked": "yes",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2016 refined",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.84,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "www.github.com/fdmm1989/PersistentHodgeLaplacian",
+      "license": "MIT",
+      "last_commit_date": "2021-01-21",
+      "has_readme": true,
+      "readme_description": "This MATLAB project computes eigenvalues of persistent combinatorial Laplacian matrices with applications to protein-ligand interaction analysis. It includes tools for computing Vietoris-Rips complexes and reading protein structure data from PDB files.",
+      "install_instructions": false,
+      "explicit_versions": false,
+      "environment_file": false,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": false,
+      "training_scripts": false,
+      "pretrained_weights": false,
+      "notebook": false,
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "missing_weights",
+      "missing_inference_code",
+      "missing_environment_spec"
+    ],
+    "failure_modes": [
+      "missing_weights",
+      "missing_inference_code",
+      "missing_environment_spec"
+    ],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

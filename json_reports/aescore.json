@@ -1,0 +1,77 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "aescore",
+  "literature": {
+    "title": "Learning protein-ligand binding affinity with atomic environment vectors",
+    "year": 2021,
+    "journal": "Journal of Cheminformatics",
+    "doi": "https://doi.org/10.1186/s13321-021-00536-w",
+    "volume": "13",
+    "issue": "59",
+    "data_linked": "yes",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2016 refined",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_pearson_r": null,
+    "reported_scoring_power": {
+      "pearson_r": 0.83,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": {
+      "link": "https://doi.org/10.5281/zenodo.4155365",
+      "doi": "https://doi.org/10.5281/zenodo.4155365",
+      "license": "CC BY 4.0",
+      "description": "structures and results"
+    },
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/RMeli/aescore",
+      "license": "BSD-3-Clause",
+      "last_commit_date": "2022-03-24",
+      "has_readme": true,
+      "readme_description": "AEScore is a Python package for predicting protein-ligand binding affinity using atomic environment vectors based on ANI-style neural network potentials. It provides training, validation, and scoring scripts alongside a pretrained model evaluated on the CASF-2016 benchmark.",
+      "install_instructions": true,
+      "explicit_versions": true,
+      "environment_file": true,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": true,
+      "notebook": false,
+      "known_issues": null,
+      "study_fork": {
+        "link": "https://github.com/jeavesj/aescore",
+        "changes_summary": null
+      }
+    }
+  },
+  "environment": {
+    "python_version": "3.12.12",
+    "conda_env_name": "ael-test",
+    "conda_env_file": "https://github.com/jeavesj/aescore/blob/master/devtools/conda-envs/ael-test.yaml",
+    "cuda_toolkit": "12.4",
+    "hardware": "MSU HPCC amd20-V100"
+  },
+  "reproducibility": {
+    "status": "Poor",
+    "troubleshooting_time": "2-4h",
+    "barriers_to_attempt": [],
+    "failure_modes": [
+      "checkpoint_ambiguity"
+    ],
+    "failure_notes": "Unclear which pretrained model weight files should have been used",
+    "reproduced_metrics": {
+      "pearson_r": 0.694
+    },
+    "checkpoint_used": "experiments/CASF-2016-consensus-nohetatm-PH/out"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "AGL-Score",
+  "literature": {
+    "title": "AGL-Score: Algebraic Graph Learning Score for Protein\u2013Ligand Binding Scoring, Ranking, Docking, and Screening",
+    "year": 2019,
+    "journal": "Journal of Chemical Information and Modeling",
+    "doi": "https://pubs.acs.org/doi/10.1021/acs.jcim.9b00334",
+    "volume": "59",
+    "issue": "7",
+    "data_linked": "yes",
+    "code_linked": "no",
+    "training_set": "PDBbind v.2016 refined",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.833,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": {
+      "link": "https://weilab.math.msu.edu/AGL-Score",
+      "doi": null,
+      "license": null,
+      "description": "structures for docking and screening power datasets"
+    },
+    "code_repo": null
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "no_public_code",
+      "web_server_only",
+      "missing_weights",
+      "missing_preprocessing_code",
+      "missing_inference_code",
+      "missing_environment_spec"
+    ],
+    "failure_modes": [
+      "missing_weights",
+      "missing_preprocessing_code",
+      "missing_inference_code",
+      "missing_environment_spec",
+      "undocumented_data_format"
+    ],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

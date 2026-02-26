@@ -1,0 +1,76 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "HAC-Net",
+  "literature": {
+    "title": "HAC-Net: A Hybrid Attention-Based Convolutional Neural Network for Highly Accurate Protein\u2013Ligand Binding Affinity Prediction",
+    "year": 2023,
+    "journal": "Journal of Chemical Information and Modeling",
+    "doi": "https://doi.org/10.1021/acs.jcim.3c00251",
+    "volume": "63",
+    "issue": "7",
+    "data_linked": "yes",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2020 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.846,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": {
+      "link": "https://drive.google.com/drive/folders/1yB2voUxwzhrQRh0JXnOD3BzY8ZQrbgUK?usp=sharing",
+      "doi": null,
+      "license": null,
+      "description": "Extracted features for many datasets and for deeper analyses (e.g., ablation studies), model weights, intermediate graphs"
+    },
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/gregory-kyro/HAC-Net",
+      "license": "MIT",
+      "last_commit_date": "2024-12-08",
+      "has_readme": true,
+      "readme_description": "HAC-Net combines a 3D convolutional neural network with graph convolutional networks to predict protein-ligand binding affinity, achieving state-of-the-art performance on the PDBbind benchmark. The repository provides model code, pretrained weights, and scripts for training and evaluation.",
+      "install_instructions": true,
+      "explicit_versions": false,
+      "environment_file": false,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": true,
+      "notebook": true,
+      "known_issues": null,
+      "study_fork": {
+        "link": "https://github.com/jeavesj/HAC-Net",
+        "changes_summary": null
+      }
+    }
+  },
+  "environment": {
+    "python_version": "3.12",
+    "conda_env_name": "hacnet",
+    "conda_env_file": "https://github.com/jeavesj/HAC-Net/blob/main/environment.yml",
+    "cuda_toolkit": "12.8",
+    "hardware": "MSU HPCC amd24-H200"
+  },
+  "reproducibility": {
+    "status": "Nearly reproduced",
+    "troubleshooting_time": "8-12h",
+    "barriers_to_attempt": [],
+    "failure_modes": [
+      "broken_dependencies"
+    ],
+    "failure_notes": "The limitations in reproducibility are likely, in large part, from the use of the no-longer-supported ACC2 API for charge calculation.",
+    "reproduced_metrics": {
+      "pearson_r": 0.777
+    },
+    "checkpoint_used": "https://github.com/gregory-kyro/HAC-Net/tree/main/HACNet/parameter_files"
+  }
+}

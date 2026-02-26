@@ -1,0 +1,47 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "DeepAtom",
+  "literature": {
+    "title": "DeepAtom: A Framework for Protein-Ligand Binding Affinity Prediction",
+    "year": 2019,
+    "journal": "IEEE International Conference on Bioinformatics and Biomedicine",
+    "doi": "https://doi.org/10.1109/BIBM47256.2019.8982964",
+    "volume": null,
+    "issue": null,
+    "data_linked": "no",
+    "code_linked": "no",
+    "training_set": "PDBbind v.2016 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.83,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": null
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "no_public_code"
+    ],
+    "failure_modes": [
+      "missing_weights",
+      "missing_preprocessing_code",
+      "missing_inference_code",
+      "missing_environment_spec"
+    ],
+    "failure_notes": "No code published",
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

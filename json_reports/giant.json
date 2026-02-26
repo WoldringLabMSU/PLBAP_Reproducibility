@@ -1,0 +1,64 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "GIaNt",
+  "literature": {
+    "title": "GIaNt: Protein-Ligand Binding Affinity Prediction via Geometry-Aware Interactive Graph Neural Network",
+    "year": 2024,
+    "journal": "IEEE Transactions on Knowledge and Data Engineering",
+    "doi": "https://doi.org/10.1109/TKDE.2023.3314502",
+    "volume": "36",
+    "issue": "5",
+    "data_linked": "no",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2016 refined",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.814,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/PaddlePaddle/PaddleHelix/tree/dev/apps/drug_target_interaction/giant",
+      "license": "CC BY-NC-SA 4.0",
+      "last_commit_date": "2023-07-26",
+      "has_readme": true,
+      "readme_description": "GIANT-Paddle is a drug-target interaction prediction model implemented with PaddlePaddle that uses graph neural networks on PDBbind data. It includes preprocessing pipelines and training scripts requiring Python 3.8+, PaddlePaddle 2.1.0+, and PGL 2.1.4+.",
+      "install_instructions": false,
+      "explicit_versions": true,
+      "environment_file": false,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": false,
+      "training_scripts": true,
+      "pretrained_weights": false,
+      "notebook": false,
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "missing_weights",
+      "missing_inference_code"
+    ],
+    "failure_modes": [
+      "missing_weights",
+      "missing_inference_code"
+    ],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "Dynaformer",
+  "literature": {
+    "title": "From Static to Dynamic Structures: Improving Binding Affinity Prediction with Graph-Based Deep Learning",
+    "year": 2024,
+    "journal": "Advanced Science",
+    "doi": "https://doi.org/10.1002/advs.202405404",
+    "volume": "11",
+    "issue": "40",
+    "data_linked": "yes",
+    "code_linked": "partial",
+    "training_set": "PDBbind general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": "pK units",
+      "target_normalized": "pK_unspecified"
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.827,
+      "rmse": null,
+      "rmse_unit": null,
+      "notes": null
+    },
+    "reported_scoring_power_md": null
+  },
+  "artifacts": {
+    "data_repo": {
+      "link": "https://onedrive.live.com/?id=7C358E1E6AF36B1F%214900&#38;resid=7C358E1E6AF36B1F%214900&#38;ithint=folder&#38;e=B1E53d&#38;migratedtospo=true&#38;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvcyFBaDlyODJvZWpqVjhwaVFIcV9xQWllaW9fODZ6P2U9QjFFNTNk&#38;cid=7c358e1e6af36b1f&#38;v=validatepermission",
+      "doi": null,
+      "license": null,
+      "description": "MD trajectories, scripts for MD simulation and preprocessed data for Dynaformer"
+    },
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/Minys233/Dynaformer",
+      "license": "MIT",
+      "last_commit_date": "2024-06-29",
+      "has_readme": true,
+      "readme_description": "Dynaformer is a deep learning framework that encodes molecular dynamics features to enhance protein-ligand binding affinity prediction. The repository provides pretrained models, evaluation scripts for benchmark datasets, and tools for analyzing custom protein-ligand pairs.",
+      "install_instructions": true,
+      "explicit_versions": true,
+      "environment_file": true,
+      "install_script": true,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": true,
+      "notebook": false,
+      "known_issues": "\"preprocess/custom_input.py: When processing data in parallel, there may be competing data writes resulting in incorrect contents of the intermediate file (SDF), resulting in failure to output .pkl results.\"",
+      "study_fork": {
+        "link": "https://github.com/jeavesj/Dynaformer",
+        "changes_summary": null
+      }
+    }
+  },
+  "environment": {
+    "python_version": "3.9",
+    "conda_env_name": "dynaformer",
+    "conda_env_file": "https://github.com/jeavesj/Dynaformer/blob/main/dynaformer_env.yml",
+    "cuda_toolkit": "11.3.1",
+    "hardware": "MSU HPCC amd24-H200"
+  },
+  "reproducibility": {
+    "status": "Fully reproduced",
+    "troubleshooting_time": "4-6h",
+    "barriers_to_attempt": [],
+    "failure_modes": [],
+    "failure_notes": null,
+    "reproduced_metrics": {
+      "pearson_r": 0.824
+    },
+    "checkpoint_used": "https://1drv.ms/f/s!Ah9r82oejjV8n0Bw4vAddMLBK-m-?e=95ciZv"
+  }
+}

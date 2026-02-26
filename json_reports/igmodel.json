@@ -1,0 +1,71 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "IGModel",
+  "literature": {
+    "title": "A new paradigm for applying deep learning to protein\u2013ligand interaction prediction",
+    "year": 2024,
+    "journal": "Briefings in Bioinformatics",
+    "doi": "https://doi.org/10.1093/bib/bbae145",
+    "volume": "25",
+    "issue": "3",
+    "data_linked": "no",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2019 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.831,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/zchwang/IGModel",
+      "license": "MIT",
+      "last_commit_date": "2025-01-04",
+      "has_readme": true,
+      "readme_description": "IGModel is a unified deep learning framework that simultaneously predicts ligand docking pose accuracy (RMSD) and binding affinity (pKd) using graph neural networks applied to protein-ligand interaction graphs. The repository includes training and evaluation scripts for the PDBbind dataset.",
+      "install_instructions": true,
+      "explicit_versions": false,
+      "environment_file": true,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": false,
+      "pretrained_weights": true,
+      "notebook": false,
+      "known_issues": null,
+      "study_fork": {
+        "link": "https://github.com/jeavesj/IGModel",
+        "changes_summary": null
+      }
+    }
+  },
+  "environment": {
+    "python_version": "3.9.23",
+    "conda_env_name": "igmodel",
+    "conda_env_file": "https://github.com/jeavesj/IGModel/blob/master/environment_amd20-v100.yml",
+    "cuda_toolkit": "11.8",
+    "hardware": "MSU HPCC amd20-V100"
+  },
+  "reproducibility": {
+    "status": "Poor",
+    "troubleshooting_time": "2-4h",
+    "barriers_to_attempt": [],
+    "failure_modes": [
+      "checkpoint_ambiguity"
+    ],
+    "failure_notes": "Three ligands failed to parse (RDKit errors). Attempted with both available checkpoints and reported best results (obtained with saved_model.pth)",
+    "reproduced_metrics": {
+      "pearson_r": 0.45
+    },
+    "checkpoint_used": "https://github.com/jeavesj/IGModel/blob/master/models/saved_model.pth"
+  }
+}

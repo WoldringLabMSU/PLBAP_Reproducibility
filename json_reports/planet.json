@@ -1,0 +1,62 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "PLANET",
+  "literature": {
+    "title": "PLANET: A Multi-objective Graph Neural Network Model for Protein\u2013Ligand Binding Affinity Prediction",
+    "year": 2023,
+    "journal": "Journal of Chemical Information and Modeling",
+    "doi": "https://pubs.acs.org/doi/10.1021/acs.jcim.3c00253",
+    "volume": "64",
+    "issue": "7",
+    "data_linked": "partial",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2020 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.824,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/ComputArtCMCG/PLANET",
+      "license": null,
+      "last_commit_date": "2023-12-20",
+      "has_readme": true,
+      "readme_description": "PLANET (Protein-Ligand Affinity prediction NETwork) is a graph neural network for predicting binding affinity using 3D protein binding pocket structures and 2D ligand molecular graphs via multi-objective training. It achieves competitive virtual screening performance with significantly faster computation times than traditional docking programs.",
+      "install_instructions": false,
+      "explicit_versions": true,
+      "environment_file": true,
+      "install_script": false,
+      "preprocessing_scripts": false,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": true,
+      "notebook": false,
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "missing_preprocessing_code"
+    ],
+    "failure_modes": [
+      "missing_preprocessing_code"
+    ],
+    "failure_notes": "Instructions for manual preprocessing with Maestro software were provided in readme",
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

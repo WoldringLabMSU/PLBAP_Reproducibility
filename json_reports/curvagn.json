@@ -1,0 +1,64 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "CurvAGN",
+  "literature": {
+    "title": "CurvAGN: Curvature-based Adaptive Graph Neural Networks for Predicting Protein-Ligand Binding Affinity",
+    "year": 2023,
+    "journal": "BMC Bioinformatics",
+    "doi": "https://doi.org/10.1186/s12859-023-05503-w",
+    "volume": "24",
+    "issue": "378",
+    "data_linked": "partial",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2016 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.831,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/tumancao/CurvAGN",
+      "license": null,
+      "last_commit_date": "2023-06-28",
+      "has_readme": false,
+      "readme_description": null,
+      "install_instructions": false,
+      "explicit_versions": false,
+      "environment_file": false,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": false,
+      "notebook": false,
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "missing_weights",
+      "missing_environment_spec"
+    ],
+    "failure_modes": [
+      "missing_weights",
+      "missing_environment_spec"
+    ],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}
