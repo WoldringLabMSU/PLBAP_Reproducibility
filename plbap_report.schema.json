@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/plbap_report.schema.json",
+  "title": "PLBAP Model Reproducibility Report",
+  "description": "One document per model. Captures paper metadata, artifact availability, reproduction outcome, and failure analysis.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "model_name", "literature"],
+
+  "properties": {
+
+    "schema_version": {
+      "type": "string",
+      "description": "Schema version this document conforms to.",
+      "const": "2.1.0"
+    },
+
+    "model_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Short canonical model name, e.g. 'GIGN'."
+    },
+
+    "literature": {
+      "description": "Publication metadata and reported benchmark performance.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "year", "journal"],
+      "properties": {
+
+        "title":   { "type": "string" },
+        "year":    { "type": "integer" },
+        "journal": { "type": "string" },
+        "doi":     { "type": ["string", "null"] },
+        "volume":  { "type": ["string", "null"] },
+        "issue":   { "type": ["string", "null"] },
+
+        "data_linked": {
+          "$ref": "#/$defs/tristate",
+          "description": "Are the training/evaluation datasets publicly linked from the paper or repo?"
+        },
+        "code_linked": {
+          "$ref": "#/$defs/tristate",
+          "description": "Is the source code publicly linked?"
+        },
+        "training_set": {
+          "type": ["string", "null"],
+          "description": "Training dataset used, e.g. 'PDBbind v.2016 refined'."
+        },
+
+        "casf_benchmark": {
+          "description": "Which CASF benchmark edition was used and what was predicted.",
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "year":         { "type": ["integer", "null"] },
+            "n_complexes":  { "type": ["integer", "null"] },
+            "target":       { "type": ["string", "null"], "description": "Raw target label as stated in the paper, e.g. 'pKd', 'pKi', 'binding affinity'." },
+            "target_unit":  { "type": ["string", "null"], "description": "Unit as stated in the paper, e.g. 'pK units', 'kcal/mol'." },
+            "target_normalized": {
+              "type": ["string", "null"],
+              "description": "Normalized target type enabling cross-model comparison. Use 'pK_unspecified' when the paper uses 'pK' or 'binding affinity' without distinguishing Kd/Ki/Ka.",
+              "enum": ["pKd", "pKi", "pKa", "pK_unspecified", "delta_G", "unknown", null]
+            }
+          }
+        },
+
+        "reported_scoring_power": {
+          "$ref": "#/$defs/metrics_block",
+          "description": "CASF-2016 scoring-power metrics as reported in the paper (crystal structures)."
+        },
+        "reported_scoring_power_md": {
+          "$ref": "#/$defs/metrics_block",
+          "description": "CASF-2016 scoring-power metrics reported for MD-ensemble inputs, if applicable."
+        }
+      }
+    },
+
+    "artifacts": {
+      "description": "Public availability of reproducibility-critical pipeline components.",
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+
+        "data_repo": {
+          "description": "Public data repository (if separate from code, e.g. Zenodo, Figshare).",
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "link":        { "type": ["string", "null"] },
+            "doi":         { "type": ["string", "null"] },
+            "license":     { "type": ["string", "null"] },
+            "description": { "type": ["string", "null"], "description": "What this repo contains." }
+          }
+        },
+
+        "code_repo": {
+          "description": "Primary public code repository.",
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "availability_type": {
+              "type": ["string", "null"],
+              "description": "How the code is made available. 'github'/'gitlab' = downloadable repo; 'supplementary_only' = journal supplement only; 'web_server_only' = interactive server with no downloadable code; 'none' = no code released.",
+              "enum": ["github", "gitlab", "zenodo_code", "supplementary_only", "web_server_only", "none", null]
+            },
+            "link":               { "type": ["string", "null"] },
+            "license":            { "type": ["string", "null"] },
+            "last_commit_date":   { "type": ["string", "null"], "description": "ISO date, e.g. '2024-05-16'." },
+            "has_readme":         { "type": ["boolean", "null"] },
+            "readme_description": { "type": ["string", "null"], "description": "One-sentence summary of what the README says the repo does." },
+
+            "install_instructions":  { "type": ["boolean", "null"], "description": "README includes usable installation steps." },
+            "explicit_versions":     { "type": ["boolean", "null"], "description": "Dependencies are version-pinned (not just 'pip install x')." },
+            "environment_file":      { "type": ["boolean", "null"], "description": "A conda env YAML or requirements.txt is provided." },
+            "install_script":        { "type": ["boolean", "null"] },
+
+            "preprocessing_scripts": { "type": ["boolean", "null"], "description": "Scripts to go from raw PDB files to model-ready inputs are included." },
+            "inference_scripts":     { "type": ["boolean", "null"], "description": "Scripts to run the pretrained model and generate predictions are included." },
+            "training_scripts":      { "type": ["boolean", "null"] },
+            "pretrained_weights":    { "type": ["boolean", "null"], "description": "Pretrained model checkpoint(s) are publicly available." },
+            "notebook":              { "type": ["boolean", "null"], "description": "A runnable Jupyter notebook demonstrating usage is provided." },
+
+            "known_issues": {
+              "type": ["string", "null"],
+              "description": "Known issues or caveats documented by the authors in the README or repo."
+            },
+
+            "study_fork": {
+              "description": "This study's fork of the upstream repo.",
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "link":            { "type": ["string", "null"] },
+                "changes_summary": { "type": ["string", "null"], "description": "Free-text summary of all modifications made to achieve a runnable pipeline." }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "environment": {
+      "description": "Compute environment used for the reproduction attempt.",
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "python_version":    { "type": ["string", "null"] },
+        "conda_env_name":    { "type": ["string", "null"] },
+        "conda_env_file":    { "type": ["string", "null"], "description": "Path to the env YAML file committed in the study fork." },
+        "cuda_toolkit":      { "type": ["string", "null"] },
+        "hardware":          { "type": ["string", "null"], "description": "e.g. 'MSU HPCC amd24-H200'" }
+      }
+    },
+
+    "reproducibility": {
+      "description": "Outcome and analysis of the reproduction attempt.",
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+
+        "status": {
+          "type": ["string", "null"],
+          "enum": ["Fully reproduced", "Nearly reproduced", "Partial", "Poor", "Not reproducible", "Not attempted", "Unknown", null],
+          "description": "Overall reproducibility classification."
+        },
+
+        "troubleshooting_time": {
+          "type": ["string", "null"],
+          "enum": ["<2h", "2-4h", "4-6h", "6-8h", "8-12h", ">12h", null],
+          "description": "Active troubleshooting time spent during the reproduction attempt. Null if no attempt was made."
+        },
+
+        "barriers_to_attempt": {
+          "type": "array",
+          "description": "Controlled-vocabulary tags describing why a reproduction attempt was not made or could not be started. Captures structural absences (e.g. no code, no weights) discovered during the audit, before any execution was attempted. Distinct from failure_modes, which captures what went wrong during an active attempt.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "no_public_code",
+              "web_server_only",
+              "supplementary_only",
+              "missing_weights",
+              "missing_preprocessing_code",
+              "missing_inference_code",
+              "missing_environment_spec",
+              "notebook_only",
+              "time_limit_reached"
+            ]
+          },
+          "uniqueItems": true,
+          "default": []
+        },
+
+        "failure_modes": {
+          "type": "array",
+          "description": "Controlled-vocabulary tags describing what went wrong during an active reproduction attempt. Empty array if not attempted or if fully successful.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "missing_weights",
+              "missing_preprocessing_code",
+              "missing_inference_code",
+              "missing_environment_spec",
+              "broken_dependencies",
+              "hard_coded_paths",
+              "runtime_error",
+              "incorrect_results",
+              "undocumented_data_format",
+              "hardware_incompatibility",
+              "checkpoint_ambiguity"
+            ]
+          },
+          "uniqueItems": true,
+          "default": []
+        },
+
+        "failure_notes": {
+          "type": ["string", "null"],
+          "description": "Free-text explanation of barriers, failure modes, or unusual circumstances."
+        },
+
+        "reproduced_metrics": {
+          "$ref": "#/$defs/metrics_block",
+          "description": "Metrics actually obtained in this study. Null if not attempted or pipeline did not run."
+        },
+
+        "checkpoint_used": {
+          "type": ["string", "null"],
+          "description": "Which model checkpoint was used, if multiple were available."
+        }
+      }
+    }
+  },
+
+  "$defs": {
+
+    "tristate": {
+      "type": ["string", "null"],
+      "enum": ["yes", "no", "partial", "unknown", null]
+    },
+
+    "metrics_block": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "pearson_r": { "type": ["number", "null"] },
+        "rmse":      { "type": ["number", "null"] },
+        "rmse_unit": { "type": ["string", "null"] },
+        "notes":     { "type": ["string", "null"] }
+      }
+    }
+  }
+}
