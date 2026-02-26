@@ -478,11 +478,13 @@ def section_casf(doc, undo_stack, out_path):
     ]:
         doc, _ = fill_field(doc, kp2, name, desc, th, undo_stack=undo_stack, out_path=out_path)
 
-    if ask_yn("Did the paper also report MD-trajectory scoring power?", default=False):
-        doc["literature"]["reported_scoring_power_md"] = {
-            "pearson_r": None, "rmse": None, "rmse_unit": None, "notes": None
-        }
-        save(doc, out_path)
+    existing_md = doc["literature"].get("reported_scoring_power_md")
+    if isinstance(existing_md, dict) or ask_yn("Did the paper also report MD-trajectory scoring power?", default=False):
+        if not isinstance(doc["literature"].get("reported_scoring_power_md"), dict):
+            doc["literature"]["reported_scoring_power_md"] = {
+                "pearson_r": None, "rmse": None, "rmse_unit": None, "notes": None
+            }
+            save(doc, out_path)
         kp3 = ("literature", "reported_scoring_power_md")
         for name, desc, th in [
             ("pearson_r", "MD-ensemble PCC as reported.", "num"),
@@ -496,32 +498,33 @@ def section_casf(doc, undo_stack, out_path):
 
 
 def section_code_repo(doc, undo_stack, out_path):
-    if not ask_yn("Is there a public code repository for this model?", default=True):
-        doc["artifacts"]["code_repo"] = None
+    existing_repo = doc["artifacts"].get("code_repo")
+    if not isinstance(existing_repo, dict):
+        if not ask_yn("Is there a public code repository for this model?", default=True):
+            doc["artifacts"]["code_repo"] = None
+            save(doc, out_path)
+            print(hint("  code_repo set to null — skipping.\n"))
+            return doc
+        doc["artifacts"]["code_repo"] = {
+            "availability_type": None,
+            "link": None,
+            "license": None,
+            "last_commit_date": None,
+            "has_readme": None,
+            "readme_description": None,
+            "install_instructions": None,
+            "explicit_versions": None,
+            "environment_file": None,
+            "install_script": None,
+            "preprocessing_scripts": None,
+            "inference_scripts": None,
+            "training_scripts": None,
+            "pretrained_weights": None,
+            "notebook": None,
+            "known_issues": None,
+            "study_fork": None,
+        }
         save(doc, out_path)
-        print(hint("  code_repo set to null — skipping.\n"))
-        return doc
-
-    doc["artifacts"]["code_repo"] = {
-        "availability_type": None,
-        "link": None,
-        "license": None,
-        "last_commit_date": None,
-        "has_readme": None,
-        "readme_description": None,
-        "install_instructions": None,
-        "explicit_versions": None,
-        "environment_file": None,
-        "install_script": None,
-        "preprocessing_scripts": None,
-        "inference_scripts": None,
-        "training_scripts": None,
-        "pretrained_weights": None,
-        "notebook": None,
-        "known_issues": None,
-        "study_fork": None,
-    }
-    save(doc, out_path)
     kp = ("artifacts", "code_repo")
 
     for name, desc, th, allowed, opt in [
@@ -557,9 +560,11 @@ def section_code_repo(doc, undo_stack, out_path):
                         "Known issues or caveats documented by authors in the README.",
                         "str", undo_stack=undo_stack, out_path=out_path)
 
-    if ask_yn("Did you create a study fork of this repo?", default=False):
-        doc["artifacts"]["code_repo"]["study_fork"] = {"link": None, "changes_summary": None}
-        save(doc, out_path)
+    existing_fork = doc["artifacts"]["code_repo"].get("study_fork")
+    if isinstance(existing_fork, dict) or ask_yn("Did you create a study fork of this repo?", default=False):
+        if not isinstance(doc["artifacts"]["code_repo"].get("study_fork"), dict):
+            doc["artifacts"]["code_repo"]["study_fork"] = {"link": None, "changes_summary": None}
+            save(doc, out_path)
         kp2 = ("artifacts", "code_repo", "study_fork")
         doc, _ = fill_field(doc, kp2, "link", "URL of the study fork.", "str",
                             undo_stack=undo_stack, out_path=out_path)
@@ -571,15 +576,16 @@ def section_code_repo(doc, undo_stack, out_path):
 
 
 def section_data_repo(doc, undo_stack, out_path):
-    if not ask_yn("Is there a separate public data repository (Zenodo, Figshare, etc.)?",
-                  default=False):
-        doc["artifacts"]["data_repo"] = None
+    existing_data = doc["artifacts"].get("data_repo")
+    if not isinstance(existing_data, dict):
+        if not ask_yn("Is there a separate public data repository (Zenodo, Figshare, etc.)?",
+                      default=False):
+            doc["artifacts"]["data_repo"] = None
+            save(doc, out_path)
+            print(hint("  data_repo set to null — skipping.\n"))
+            return doc
+        doc["artifacts"]["data_repo"] = {"link": None, "doi": None, "license": None, "description": None}
         save(doc, out_path)
-        print(hint("  data_repo set to null — skipping.\n"))
-        return doc
-
-    doc["artifacts"]["data_repo"] = {"link": None, "doi": None, "license": None, "description": None}
-    save(doc, out_path)
     kp = ("artifacts", "data_repo")
     for name, desc in [
         ("link",        "URL of the data repository."),
@@ -592,22 +598,23 @@ def section_data_repo(doc, undo_stack, out_path):
 
 
 def section_environment(doc, status, undo_stack, out_path):
-    attempted = status not in (None, "Not attempted")
-    if not attempted:
-        if not ask_yn("No attempt was made — still record environment details?", default=False):
-            doc["environment"] = None
-            save(doc, out_path)
-            print(hint("  environment set to null — skipping.\n"))
-            return doc
-
-    doc["environment"] = {
-        "python_version": None,
-        "conda_env_name": None,
-        "conda_env_file": None,
-        "cuda_toolkit":   None,
-        "hardware":       None,
-    }
-    save(doc, out_path)
+    existing_env = doc.get("environment")
+    if not isinstance(existing_env, dict):
+        attempted = status not in (None, "Not attempted")
+        if not attempted:
+            if not ask_yn("No attempt was made — still record environment details?", default=False):
+                doc["environment"] = None
+                save(doc, out_path)
+                print(hint("  environment set to null — skipping.\n"))
+                return doc
+        doc["environment"] = {
+            "python_version": None,
+            "conda_env_name": None,
+            "conda_env_file": None,
+            "cuda_toolkit":   None,
+            "hardware":       None,
+        }
+        save(doc, out_path)
     kp = ("environment",)
     for name, desc in [
         ("python_version", "Python version, e.g. '3.9.13'."),
@@ -669,13 +676,21 @@ def section_reproducibility(doc, undo_stack, out_path):
     if attempted:
         divider()
         print(f"\n  {bold('Reproduced metrics')}\n")
-        has_metrics = ask_yn("Did the pipeline produce results to compare against reported metrics?",
-                             default=True)
+        existing_metrics = doc["reproducibility"].get("reproduced_metrics")
+        if isinstance(existing_metrics, dict):
+            has_metrics = True
+        else:
+            has_metrics = ask_yn("Did the pipeline produce results to compare against reported metrics?",
+                                 default=True)
+            if has_metrics:
+                doc["reproducibility"]["reproduced_metrics"] = {
+                    "pearson_r": None, "rmse": None, "rmse_unit": None, "notes": None
+                }
+                save(doc, out_path)
+            else:
+                doc["reproducibility"]["reproduced_metrics"] = None
+                save(doc, out_path)
         if has_metrics:
-            doc["reproducibility"]["reproduced_metrics"] = {
-                "pearson_r": None, "rmse": None, "rmse_unit": None, "notes": None
-            }
-            save(doc, out_path)
             kp2 = ("reproducibility", "reproduced_metrics")
             for name, desc, th in [
                 ("pearson_r", "Reproduced PCC.", "num"),
@@ -685,9 +700,6 @@ def section_reproducibility(doc, undo_stack, out_path):
             ]:
                 doc, _ = fill_field(doc, kp2, name, desc, th,
                                     undo_stack=undo_stack, out_path=out_path)
-        else:
-            doc["reproducibility"]["reproduced_metrics"] = None
-            save(doc, out_path)
 
         doc, _ = fill_field(doc, kp, "checkpoint_used",
                             "Which model checkpoint was used (if multiple were available).",
