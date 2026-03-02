@@ -565,6 +565,9 @@ def section_code_repo(doc, undo_stack, out_path):
             "training_scripts": None,
             "pretrained_weights": None,
             "notebook": None,
+            "example_input_data": None,
+            "example_intermediate_data": None,
+            "example_output_predictions": None,
             "known_issues": None,
             "study_fork": None,
         }
@@ -598,6 +601,19 @@ def section_code_repo(doc, undo_stack, out_path):
         ("notebook",              "A runnable Jupyter notebook demonstrating usage is provided."),
     ]:
         doc, _ = fill_field(doc, kp, name, desc, "bool", ["true","false"],
+                            undo_stack=undo_stack, out_path=out_path)
+
+    divider()
+    print(f"\n  {bold('Example data availability')}\n")
+    for name, desc in [
+        ("example_input_data",
+         "Example input data (e.g. sample PDB files, processed graphs) included in the repo."),
+        ("example_intermediate_data",
+         "Example intermediate data (e.g. pre-computed graphs, grids) included in the repo."),
+        ("example_output_predictions",
+         "Example output predictions included in the repo."),
+    ]:
+        doc, _ = fill_field(doc, kp, name, desc, "tri", TRISTATES,
                             undo_stack=undo_stack, out_path=out_path)
 
     doc, _ = fill_field(doc, kp, "known_issues",

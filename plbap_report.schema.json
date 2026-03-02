@@ -121,6 +121,19 @@
             "pretrained_weights":    { "type": ["boolean", "null"], "description": "Pretrained model checkpoint(s) are publicly available." },
             "notebook":              { "type": ["boolean", "null"], "description": "A runnable Jupyter notebook demonstrating usage is provided." },
 
+            "example_input_data": {
+              "$ref": "#/$defs/tristate",
+              "description": "Example input data (e.g. sample PDB files, processed graphs) is included in the repo."
+            },
+            "example_intermediate_data": {
+              "$ref": "#/$defs/tristate",
+              "description": "Example intermediate data (e.g. pre-computed graphs, grids) is included in the repo."
+            },
+            "example_output_predictions": {
+              "$ref": "#/$defs/tristate",
+              "description": "Example output predictions are included in the repo."
+            },
+
             "known_issues": {
               "type": ["string", "null"],
               "description": "Known issues or caveats documented by the authors in the README or repo."
