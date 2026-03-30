@@ -13,7 +13,8 @@ preds_csv = os.path.join(out_dir, 'performance_bootstrap_summary.csv')
 # models = ['AEScore', 'ConBAP', 'DEAttentionDTA', 'Dynaformer', 'egGNN', 'EGNA', 'EHIGN-PLA', 'ET-Score', 'GIGN', 'HAC-Net', 'IGModel', 'OnionNet-2', 'PIGNet2', 'SFCNN']
 models = ['AEScore', 'ConBAP', 'DEAttentionDTA', 'deltaLinF9XGB', 'Dynaformer', 'egGNN', 'EGNA', 'EHIGN-PLA', 'ET-Score', 'GIGN', 'HAC-Net', 'IGModel', 'OnionNet-2', 'PIGNet2', 'saCNN', 'SFCNN']
 hue_order = ['Original', 'Study']
-palette = 'colorblind'
+palette = ['w', '0.6']
+# palette = 'colorblind'
 
 reported_pcc = [
     {'Model': 'AEScore', 'PCC': 0.830},
@@ -67,7 +68,7 @@ def add_ci_errorbars_for_hue(ax, ci_df, x_order, hue_order, hue_level, y_col='PC
             yerr=[[y - lo], [hi - y]],
             fmt='none',
             ecolor='black',
-            capsize=3,
+            capsize=2,
             lw=1.2,
             zorder=10
         )
@@ -83,7 +84,7 @@ pred_df['Study'] = 'Study'
 pcc_df = pd.concat([reported_df, pred_df]).reset_index(drop=True)
 print(pcc_df)
 
-fig = plt.figure(figsize=(8,4))
+fig = plt.figure(figsize=(6,4))
 g = sns.barplot(
         data=pcc_df,
         x='Model',
@@ -91,16 +92,17 @@ g = sns.barplot(
         hue='Study',
         order=models,
         hue_order=hue_order,
-        palette=palette
+        palette=palette,
+        edgecolor='k'
     )
 plt.xlabel('')
-plt.xticks(rotation=45)
-plt.ylim((-0.1,0.9))
-plt.legend(title='', ncol=2)
+plt.xticks(rotation=90)
+plt.ylim((0.2,0.9))
+plt.legend(title='', ncol=2, loc='lower right', bbox_to_anchor=(1, 1.01))
 
 add_ci_errorbars_for_hue(ax=g, ci_df=pred_df, x_order=models, hue_order=hue_order,
     hue_level='Study', y_col='PCC', lo_col='ci_lo', hi_col='ci_hi'
 )
 
 plt.tight_layout()
-plt.savefig(f'{out_dir}/PCC_reproduction_barplot.png', dpi=1200)
+plt.savefig(f'{out_dir}/PCC_reproduction_barplot-BW-FixedLegend.png', dpi=1200)

@@ -73,4 +73,4 @@ true_df.rename(columns={'-logKd/Ki': 'pK_true'}, inplace=True)
 df = pd.concat(df_list)
 df = df.merge(true_df, how='left', on='pdbid')
 
-df.to_csv('/mnt/research/woldring_lab/Members/Eaves/PLBAP_Reproducibility/2026-03-24_CASF2016_AllModels_PredsAndTimes.csv', index=False)
+df.to_csv('/mnt/research/woldring_lab/Members/Eaves/PLBAP_Reproducibility/2026-03-30_CASF2016_AllModels_PredsAndTimes.csv', index=False)
