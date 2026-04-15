@@ -1,0 +1,42 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "CGraphDTA",
+  "literature": {
+    "title": "Fusion-Based Deep Learning Architecture for Detecting Drug-Target Binding Affinity Using Target and Drug Sequence and Structure",
+    "year": 2023,
+    "journal": "IEEE Journal of Biomedical and Health Informatics",
+    "doi": "10.1109/JBHI.2023.3315073",
+    "volume": "27",
+    "issue": "12",
+    "data_linked": "no",
+    "code_linked": "no",
+    "training_set": "PDBbind v.2019 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.824,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": null
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "no_public_code"
+    ],
+    "failure_modes": [],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

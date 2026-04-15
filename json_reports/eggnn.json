@@ -1,0 +1,64 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "egGNN",
+  "literature": {
+    "title": "Edge-Gated Graph Neural Network for Predicting Protein-Ligand Binding Affinities",
+    "year": 2021,
+    "journal": "IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+    "doi": "10.1109/BIBM52615.2021.9669846",
+    "volume": null,
+    "issue": null,
+    "data_linked": "no",
+    "code_linked": "no",
+    "training_set": "PDB v.2019 refined",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.86,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/xfcui/egGNN",
+      "license": "GPL-3.0",
+      "last_commit_date": "2022-06-20",
+      "has_readme": true,
+      "readme_description": null,
+      "install_instructions": true,
+      "explicit_versions": true,
+      "environment_file": true,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": false,
+      "pretrained_weights": true,
+      "notebook": false,
+      "example_input_data": "no",
+      "example_intermediate_data": "no",
+      "example_output_predictions": "no",
+      "known_issues": null,
+      "study_fork": {
+        "link": "https://github.com/jeavesj/egGNN",
+        "changes_summary": "Fixed SMILES input in `egGNN_pipeline.py` to read from a file path instead of accepting a raw string; patched PyTorch/DGL compatibility in `run_egGNN()` (added missing `approximate` attribute on GELU layers and `_size` on ParameterList modules); added `--out_csv` arg, per-complex timing, and skip-if-already-done logic to `run_egGNN.py`; added SLURM batch script for CASF-2016 inference; added conda environment file and a README note about SMILES generation."
+      }
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": null,
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [],
+    "failure_modes": [],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

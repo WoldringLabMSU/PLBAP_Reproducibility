@@ -1,0 +1,67 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "PPS-ML",
+  "literature": {
+    "title": "PersistenPersistent Path-Spectral (PPS) Based Machine Learning for Protein\u2013Ligand Binding Affinity PredictionClick to copy article link",
+    "year": 2023,
+    "journal": "Journal of Chemical Information and Modeling",
+    "doi": "10.1021/acs.jcim.2c01251",
+    "volume": "63",
+    "issue": "3",
+    "data_linked": "partial",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2016 refined",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.843,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/LiuRanMath/Persistent-path-spectral-based-ML",
+      "license": null,
+      "last_commit_date": "2022-12-24",
+      "has_readme": true,
+      "readme_description": "This manual is for the code implementation of paper \"Persistent path spectral (PPs) based machine learning for protein-ligand binding affinity prediction\"",
+      "install_instructions": false,
+      "explicit_versions": true,
+      "environment_file": false,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": false,
+      "training_scripts": false,
+      "pretrained_weights": false,
+      "notebook": false,
+      "example_input_data": "partial",
+      "example_intermediate_data": "no",
+      "example_output_predictions": "no",
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "missing_weights",
+      "missing_inference_code"
+    ],
+    "failure_modes": [
+      "missing_weights",
+      "missing_inference_code"
+    ],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

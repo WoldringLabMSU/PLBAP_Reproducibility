@@ -1,0 +1,63 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "HydraScreen",
+  "literature": {
+    "title": "HydraScreen: A Generalizable Structure-Based Deep Learning Approach to Drug Discovery",
+    "year": 2024,
+    "journal": "Journal of Chemical Information and Modeling",
+    "doi": "10.1021/acs.jcim.4c00481",
+    "volume": "64",
+    "issue": "15",
+    "data_linked": "yes",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2020 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.86,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/Ro5-ai/hydrascreen",
+      "license": "Non-Commercial Use",
+      "last_commit_date": "2024-06-25",
+      "has_readme": true,
+      "readme_description": null,
+      "install_instructions": true,
+      "explicit_versions": true,
+      "environment_file": true,
+      "install_script": false,
+      "preprocessing_scripts": false,
+      "inference_scripts": false,
+      "training_scripts": false,
+      "pretrained_weights": false,
+      "notebook": false,
+      "example_input_data": "no",
+      "example_intermediate_data": "no",
+      "example_output_predictions": "no",
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "web_server_only"
+    ],
+    "failure_modes": [],
+    "failure_notes": "API only with no accessible source code",
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

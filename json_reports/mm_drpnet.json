@@ -1,0 +1,65 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "MM-DRPNet",
+  "literature": {
+    "title": "MM-DRPNet: A multimodal dynamic radial partitioning network for enhanced protein\u2013ligand binding affinity prediction",
+    "year": 2024,
+    "journal": "Computational and Structural Biotechnology Journal",
+    "doi": "https://doi.org/10.1016/j.csbj.2024.11.050",
+    "volume": "23",
+    "issue": null,
+    "data_linked": "partial",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2016 general (partial)",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.884,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/Bigrock-dd/MMDRPv1",
+      "license": null,
+      "last_commit_date": "2024-11-22",
+      "has_readme": true,
+      "readme_description": null,
+      "install_instructions": true,
+      "explicit_versions": true,
+      "environment_file": true,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": false,
+      "notebook": false,
+      "example_input_data": "partial",
+      "example_intermediate_data": "partial",
+      "example_output_predictions": "no",
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "missing_weights"
+    ],
+    "failure_modes": [
+      "missing_weights"
+    ],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

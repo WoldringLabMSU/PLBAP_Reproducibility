@@ -1,0 +1,69 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "PIGNet2",
+  "literature": {
+    "title": "PIGNet2: a versatile deep learning-based protein\u2013ligand interaction prediction model for binding affinity scoring and virtual screening",
+    "year": 2024,
+    "journal": "Digital Discovery",
+    "doi": "https://doi.org/10.1039/D3DD00149K",
+    "volume": "3",
+    "issue": "2",
+    "data_linked": "yes",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2016 refined",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.747,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": {
+      "link": "https://doi.org/10.5281/zenodo.8091220",
+      "doi": "https://doi.org/10.5281/zenodo.8091220",
+      "license": "CC BY 4.0",
+      "description": "training and test datasets"
+    },
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/ACE-KAIST/PIGNet2",
+      "license": "MIT",
+      "last_commit_date": "2024-03-05",
+      "has_readme": true,
+      "readme_description": null,
+      "install_instructions": true,
+      "explicit_versions": true,
+      "environment_file": true,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": true,
+      "notebook": false,
+      "example_input_data": "partial",
+      "example_intermediate_data": "no",
+      "example_output_predictions": "no",
+      "known_issues": null,
+      "study_fork": {
+        "link": "https://github.com/jeavesj/PIGNet2",
+        "changes_summary": "Updated dependencies from CUDA 11.1 to CUDA 12.x (torch 1.9\u21922.4.1, PyG 2.0.3\u21922.4.0); fixed `.keys`\u2192`.keys()` for PyG 2.x API in `data.py`; added `_fix_and_sanitize()` to `generate_data.py` to correct MDL-misencoded carboxylate/guanidinium/sulfonate/iminium groups in PDBbind SDF files; added defensive error handling in `protonate_mol()`; rewrote `write_predictions()` for CSV output with timing column and append-mode per-complex accumulation; added `install.sh`, SLURM batch script, local `dimorphite_dl` shim (no longer on PyPI), and conda environment file."
+      }
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": null,
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [],
+    "failure_modes": [],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

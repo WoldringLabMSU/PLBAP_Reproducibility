@@ -1,0 +1,66 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "DAAP",
+  "literature": {
+    "title": "Distance plus attention for binding affinity prediction",
+    "year": 2024,
+    "journal": "Journal of Cheminformatics",
+    "doi": "https://doi.org/10.1186/s13321-024-00844-x",
+    "volume": "16",
+    "issue": "52",
+    "data_linked": "partial",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2016 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.886,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "gitlab",
+      "link": "https://gitlab.com/mahnewton/daap",
+      "license": null,
+      "last_commit_date": "2023-11-20",
+      "has_readme": true,
+      "readme_description": null,
+      "install_instructions": false,
+      "explicit_versions": true,
+      "environment_file": false,
+      "install_script": false,
+      "preprocessing_scripts": false,
+      "inference_scripts": true,
+      "training_scripts": false,
+      "pretrained_weights": true,
+      "notebook": false,
+      "example_input_data": "partial",
+      "example_intermediate_data": "partial",
+      "example_output_predictions": "no",
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "missing_preprocessing_code"
+    ],
+    "failure_modes": [
+      "missing_preprocessing_code",
+      "checkpoint_ambiguity"
+    ],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "LigityScore",
+  "literature": {
+    "title": "LigityScore: A CNN-Based Method for\u00a0Binding Affinity Predictions",
+    "year": 2022,
+    "journal": "Biomedical Engineering Systems and Technologies",
+    "doi": "https://doi.org/10.1007/978-3-031-20664-1_2",
+    "volume": "1710",
+    "issue": null,
+    "data_linked": "no",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2018 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.725,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "gitlab",
+      "link": "https://gitlab.com/josephazzopardi/ligityscore",
+      "license": null,
+      "last_commit_date": "2021-04-26",
+      "has_readme": true,
+      "readme_description": null,
+      "install_instructions": true,
+      "explicit_versions": true,
+      "environment_file": true,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": true,
+      "notebook": true,
+      "example_input_data": "partial",
+      "example_intermediate_data": "no",
+      "example_output_predictions": "no",
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [],
+    "failure_modes": [],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "MSSDTA",
+  "literature": {
+    "title": "Predicting Protein-Ligand Binding Affinity with Multi-Scale Structural Features",
+    "year": 2023,
+    "journal": "IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+    "doi": "10.1109/BIBM58861.2023.10385328",
+    "volume": null,
+    "issue": null,
+    "data_linked": "no",
+    "code_linked": "no",
+    "training_set": "PDBbind v.2019 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.801,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": null
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "no_public_code"
+    ],
+    "failure_modes": [],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

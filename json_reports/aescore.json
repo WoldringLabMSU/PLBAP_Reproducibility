@@ -72,6 +72,6 @@
     "reproduced_metrics": {
       "pearson_r": 0.694
     },
-    "checkpoint_used": "experiments/CASF-2016-consensus-nohetatm-PH/out"
+    "checkpoint_used": "https://doi.org/10.5281/zenodo.4155365 (experiments/CASF-2016-consensus-nohetatm-PH/out)"
   }
 }

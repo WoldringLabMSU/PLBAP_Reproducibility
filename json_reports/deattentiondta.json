@@ -1,0 +1,64 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "DEAttentionDTA",
+  "literature": {
+    "title": "DEAttentionDTA: protein\u2013ligand binding affinity prediction based on dynamic embedding and self-attention",
+    "year": 2024,
+    "journal": "Bioinformatics",
+    "doi": "https://doi.org/10.1093/bioinformatics/btae319",
+    "volume": "40",
+    "issue": "6",
+    "data_linked": "no",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2020 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.845,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/whatamazing1/DEAttentionDTA",
+      "license": null,
+      "last_commit_date": "2024-03-16",
+      "has_readme": true,
+      "readme_description": null,
+      "install_instructions": true,
+      "explicit_versions": true,
+      "environment_file": true,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": true,
+      "notebook": false,
+      "example_input_data": "partial",
+      "example_intermediate_data": "no",
+      "example_output_predictions": "partial",
+      "known_issues": null,
+      "study_fork": {
+        "link": "https://github.com/jeavesj/DEAttentionDTA",
+        "changes_summary": "Replaced all hardcoded Windows paths with argparse CLI parameters across all preprocessing and test scripts; fixed fragile whitespace-based PDB parsing with fixed-width column extraction in `get_protein.py` and `get_pocket.py`; added chain-ID fallback in `get_pocket.py`; added NaN-safe affinity handling in `Dataset.py`; added per-complex prep and inference time logging to `data_pre-code.py` and `test.py`; added per-fold and ensemble-average prediction output in `test.py`; added conda environment file."
+      }
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": null,
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [],
+    "failure_modes": [],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

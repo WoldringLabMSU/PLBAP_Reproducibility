@@ -1,0 +1,63 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "saCNN",
+  "literature": {
+    "title": "Structure-Based Protein-Drug Affinity Prediction with Spatial Attention Mechanisms",
+    "year": 2021,
+    "journal": "IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+    "doi": "10.1109/BIBM52615.2021.9669781",
+    "volume": null,
+    "issue": null,
+    "data_linked": "no",
+    "code_linked": "no",
+    "training_set": "PDBbind v.2019 general and PDBbind v.2016 refined",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.865,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/xfcui/saCNN",
+      "license": null,
+      "last_commit_date": "2022-06-09",
+      "has_readme": true,
+      "readme_description": null,
+      "install_instructions": true,
+      "explicit_versions": false,
+      "environment_file": false,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": false,
+      "pretrained_weights": true,
+      "notebook": false,
+      "example_input_data": "partial",
+      "example_intermediate_data": "partial",
+      "example_output_predictions": "no",
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "missing_environment_spec"
+    ],
+    "failure_modes": [],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}

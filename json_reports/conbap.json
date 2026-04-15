@@ -1,0 +1,70 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "ConBAP",
+  "literature": {
+    "title": "Enhancing Generalizability in Protein\u2013Ligand Binding Affinity Prediction with Multimodal Contrastive Learning",
+    "year": 2024,
+    "journal": "Journal of Chemical Information and Modeling",
+    "doi": "10.1021/acs.jcim.3c01961",
+    "volume": "64",
+    "issue": "6",
+    "data_linked": "yes",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2016 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.864,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": {
+      "link": "https://doi.org/10.5281/zenodo.10532671",
+      "doi": "https://doi.org/10.5281/zenodo.10532671",
+      "license": "CC BY 4.0",
+      "description": "processed training data"
+    },
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/ld139/ConBAP",
+      "license": "MIT",
+      "last_commit_date": "2024-07-11",
+      "has_readme": true,
+      "readme_description": null,
+      "install_instructions": false,
+      "explicit_versions": true,
+      "environment_file": false,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": true,
+      "notebook": false,
+      "example_input_data": "partial",
+      "example_intermediate_data": "no",
+      "example_output_predictions": "no",
+      "known_issues": null,
+      "study_fork": {
+        "link": "https://github.com/jeavesj/ConBAP",
+        "changes_summary": "Added conda environment file and SLURM batch script for MSU HPCC; replaced hardcoded paths with argparse CLI arguments in `dataset_ConBAP.py` and `predict.py`; added per-sample preprocessing and inference timing written to CSV; fixed pocket selection term suffixes (`_protein`/`_ligand`); added fallback handling for alternate ligand file formats and missing protein files; added RDKit valence error workarounds; added `compile_outputs.py` to merge timing CSVs into a combined output."
+      }
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Poor",
+    "troubleshooting_time": "2-4h",
+    "barriers_to_attempt": [],
+    "failure_modes": [],
+    "failure_notes": "Preprocessing bugs likely culprits for irreproducibility... had to add fallbacks for RDKit errors.",
+    "reproduced_metrics": {
+      "pearson_r": 0.694
+    },    "checkpoint_used": null
+  }
+}

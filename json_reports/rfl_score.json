@@ -1,0 +1,65 @@
+{
+  "schema_version": "2.1.0",
+  "model_name": "RFL-Score",
+  "literature": {
+    "title": "RFL-Score: Random Forest with Lasso Scoring Function for Protein-Ligand Molecular Docking",
+    "year": 2024,
+    "journal": "IEEE Conference on Computational Intelligence in Bioinformatics and Computational Biology (CIBCB)",
+    "doi": "10.1109/CIBCB58642.2024.10702128",
+    "volume": null,
+    "issue": null,
+    "data_linked": "no",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2018 general weak, PDBbind v.2018 refined, and CSAR-NRC HiQ",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.812,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": null,
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/rflscore/rfl-score_v1",
+      "license": "MIT",
+      "last_commit_date": "2022-07-08",
+      "has_readme": true,
+      "readme_description": null,
+      "install_instructions": false,
+      "explicit_versions": true,
+      "environment_file": false,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": false,
+      "pretrained_weights": false,
+      "notebook": false,
+      "example_input_data": "partial",
+      "example_intermediate_data": "partial",
+      "example_output_predictions": "no",
+      "known_issues": null,
+      "study_fork": null
+    }
+  },
+  "environment": null,
+  "reproducibility": {
+    "status": "Not attempted",
+    "troubleshooting_time": null,
+    "barriers_to_attempt": [
+      "missing_weights"
+    ],
+    "failure_modes": [
+      "missing_weights"
+    ],
+    "failure_notes": null,
+    "reproduced_metrics": null,
+    "checkpoint_used": null
+  }
+}
