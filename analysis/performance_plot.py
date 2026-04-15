@@ -11,7 +11,7 @@ from scipy import stats
 out_dir = '/mnt/research/woldring_lab/Members/Eaves/PLBAP_Reproducibility/analysis/results'
 preds_csv = os.path.join(out_dir, 'performance_bootstrap_summary.csv')
 # models = ['AEScore', 'ConBAP', 'DEAttentionDTA', 'Dynaformer', 'egGNN', 'EGNA', 'EHIGN-PLA', 'ET-Score', 'GIGN', 'HAC-Net', 'IGModel', 'OnionNet-2', 'PIGNet2', 'SFCNN']
-models = ['AEScore', 'ConBAP', 'DEAttentionDTA', 'deltaLinF9XGB', 'Dynaformer', 'egGNN', 'EGNA', 'EHIGN-PLA', 'ET-Score', 'GIGN', 'HAC-Net', 'IGModel', 'OnionNet-2', 'PIGNet2', 'saCNN', 'SFCNN']
+models = ['AEScore', 'ConBAP', 'DEAttentionDTA', 'deltaLinF9XGB', 'Dynaformer', 'egGNN', 'EGNA', 'EHIGN-PLA', 'ET-Score', 'GIGN', 'HAC-Net', 'IGModel', 'OnionNet-2', 'PIGNet2', 'saCNN', 'SFCNN', 'TopoFormer']
 hue_order = ['Original', 'Study']
 palette = ['w', '0.6']
 # palette = 'colorblind'
@@ -32,7 +32,8 @@ reported_pcc = [
     {'Model': 'OnionNet-2', 'PCC': 0.864},
     {'Model': 'PIGNet2', 'PCC': 0.747},
     {'Model': 'saCNN', 'PCC': 0.865},
-    {'Model': 'SFCNN', 'PCC': 0.793}
+    {'Model': 'SFCNN', 'PCC': 0.793},
+    {'Model': 'TopoFormer', 'PCC': 0.881}
 ]
 
 def add_ci_errorbars_for_hue(ax, ci_df, x_order, hue_order, hue_level, y_col='PCC', lo_col='ci_lo', hi_col='ci_hi'):
@@ -98,7 +99,7 @@ g = sns.barplot(
 plt.xlabel('')
 plt.xticks(rotation=90)
 plt.ylim((0.2,0.9))
-plt.legend(title='', ncol=2, loc='lower right', bbox_to_anchor=(1, 1.01))
+plt.legend(title='', ncol=2, loc='center', bbox_to_anchor=(0.5, 1.08))
 
 add_ci_errorbars_for_hue(ax=g, ci_df=pred_df, x_order=models, hue_order=hue_order,
     hue_level='Study', y_col='PCC', lo_col='ci_lo', hi_col='ci_hi'

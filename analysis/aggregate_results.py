@@ -4,7 +4,7 @@ import os
 
 preds_dir = '/mnt/research/woldring_lab/Members/Eaves/PLBAP_Reproducibility/PLBAP_results'
 
-models = ['AEScore', 'ConBAP', 'DEAttentionDTA', 'delta_LinF9_XGB', 'Dynaformer', 'egGNN', 'EGNA', 'EHIGN-PLA', 'ET-Score', 'GIGN', 'HAC-Net', 'IGModel', 'OnionNet-2', 'PIGNet2', 'saCNN', 'SFCNN']
+models = ['AEScore', 'ConBAP', 'DEAttentionDTA', 'delta_LinF9_XGB', 'Dynaformer', 'egGNN', 'EGNA', 'EHIGN-PLA', 'ET-Score', 'GIGN', 'HAC-Net', 'IGModel', 'OnionNet-2', 'PIGNet2', 'saCNN', 'SFCNN', 'TopoFormer']
 pdbid_cols = ['pdb_id'] # will change to 'pdbid'
 inf_t_cols = ['time_inference_s', 'time_inf_s'] # will change to 't_inf_s'
 prep_t_cols = ['time_featurize_s'] # will change to 't_prep_s'
@@ -73,4 +73,4 @@ true_df.rename(columns={'-logKd/Ki': 'pK_true'}, inplace=True)
 df = pd.concat(df_list)
 df = df.merge(true_df, how='left', on='pdbid')
 
-df.to_csv('/mnt/research/woldring_lab/Members/Eaves/PLBAP_Reproducibility/2026-03-30_CASF2016_AllModels_PredsAndTimes.csv', index=False)
+df.to_csv('/mnt/research/woldring_lab/Members/Eaves/PLBAP_Reproducibility/2026-04-02_CASF2016_AllModels_PredsAndTimes.csv', index=False)

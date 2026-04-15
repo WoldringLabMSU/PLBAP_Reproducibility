@@ -9,7 +9,7 @@ import seaborn as sns
 from scipy import stats
 
 
-performance_data = '/mnt/research/woldring_lab/Members/Eaves/PLBAP_Reproducibility/2026-03-30_CASF2016_AllModels_PredsAndTimes.csv'
+performance_data = '/mnt/research/woldring_lab/Members/Eaves/PLBAP_Reproducibility/2026-04-02_CASF2016_AllModels_PredsAndTimes.csv'
 out_dir = '/mnt/research/woldring_lab/Members/Eaves/PLBAP_Reproducibility/analysis/results'
 os.makedirs(out_dir, exist_ok=True)
 
@@ -18,7 +18,7 @@ seed = 42
 ci_alpha = 0.05
 matplotlib.rcParams.update({'font.size': 12})
 
-models = ['AEScore', 'ConBAP', 'DEAttentionDTA', 'deltaLinF9XGB', 'Dynaformer', 'egGNN', 'EGNA', 'EHIGN-PLA', 'ET-Score', 'GIGN', 'HAC-Net', 'IGModel', 'OnionNet-2', 'PIGNet2', 'saCNN', 'SFCNN']
+models = ['AEScore', 'ConBAP', 'DEAttentionDTA', 'deltaLinF9XGB', 'Dynaformer', 'egGNN', 'EGNA', 'EHIGN-PLA', 'ET-Score', 'GIGN', 'HAC-Net', 'IGModel', 'OnionNet-2', 'PIGNet2', 'saCNN', 'SFCNN', 'TopoFormer']
 
 df = pd.read_csv(performance_data)
 df['pdbid'] = df['pdbid'].astype(str).str.lower().str.strip()

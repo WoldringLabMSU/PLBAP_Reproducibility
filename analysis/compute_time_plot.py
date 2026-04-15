@@ -11,7 +11,7 @@ import matplotlib.cm as cm
 import matplotlib.colors as mcolors
 
 out_dir = '/mnt/research/woldring_lab/Members/Eaves/PLBAP_Reproducibility/analysis/results'
-performance_data = '/mnt/research/woldring_lab/Members/Eaves/PLBAP_Reproducibility/2026-03-24_CASF2016_AllModels_PredsAndTimes.csv'
+performance_data = '/mnt/research/woldring_lab/Members/Eaves/PLBAP_Reproducibility/2026-04-02_CASF2016_AllModels_PredsAndTimes.csv'
 models = ['AEScore', 'ConBAP', 'DEAttentionDTA', 'deltaLinF9XGB', 'Dynaformer', 'egGNN', 'EGNA', 'EHIGN-PLA', 'ET-Score', 'GIGN', 'HAC-Net', 'IGModel', 'OnionNet-2', 'PIGNet2', 'saCNN', 'SFCNN']
 rep_models = ['DEAttentionDTA', 'deltaLinF9XGB', 'Dynaformer', 'EGNA', 'EHIGN-PLA', 'GIGN', 'OnionNet-2', 'saCNN', 'SFCNN']
 palette = ['0.7', 'w']
@@ -84,7 +84,7 @@ fig, ax = plt.subplots(figsize=(8,4))
 rep_df = pred_df[pred_df['Status'] == 'Reproduced']
 
 norm = mcolors.Normalize(vmin=rep_df['Reported PCC'].min(), vmax=rep_df['Reported PCC'].max())
-mapper = cm.ScalarMappable(norm=norm, cmap='viridis')
+mapper = cm.ScalarMappable(norm=norm, cmap='binary')
 model_colors = [mapper.to_rgba(rep_df[rep_df['Model'] == m]['Reported PCC'].values[0]) for m in rep_models]
 
 g = sns.violinplot(data=rep_df, x='Model', y='t_tot_s', order=rep_models, hue='Reported PCC', log_scale=10, density_norm='width', linecolor='k', palette=model_colors, legend=False)
@@ -96,4 +96,4 @@ cbar = fig.colorbar(mapper, ax=ax)
 cbar.set_label('Reported PCC')
 
 plt.tight_layout()
-plt.savefig(f'{out_dir}/compute_time-ReproducedOnly-PCCcolor.png', dpi=1200)
+plt.savefig(f'{out_dir}/compute_time-ReproducedOnly-PCC-BW.png', dpi=1200)
