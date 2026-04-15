@@ -34,6 +34,7 @@ Of the 50 investigated models, only 16 models had all checklist items and, thus,
 | [PIGNet2](https://github.com/ACE-KAIST/PIGNet2)<sup>14</sup> | [Study Fork](https://github.com/jeavesj/PIGNet2) |
 | [saCNN](https://github.com/xfcui/saCNN)<sup>15</sup> | [Study Fork](https://github.com/jeavesj/saCNN) |
 | [Sfcnn](https://github.com/bioinfocqupt/Sfcnn)<sup>16</sup> | [Study Fork](https://github.com/jeavesj/Sfcnn) |
+| [TopoFormer](https://github.com/WeilabMSU/TopoFormer)<sup>17</sup> | [Study Fork](https://github.com/jeavesj/TopoFormer) |
 
 ## Per-complex Predictions & Time Logging
 For each above model, per-complex CASF-2016 predictions and associcated preprocessing and inference times are provided as csv files in [PLBAP_results](https://github.com/WoldringLabMSU/PLBAP_Reproducibility/tree/main/PLBAP_results). Aggregated results across all 16 models are also provided in [`2026-03-30_CASF2016_AllModels_PredsAndTimes.csv`](https://github.com/WoldringLabMSU/PLBAP_Reproducibility/blob/main/2026-03-30_CASF2016_AllModels_PredsAndTimes.csv), which was created using [`analysis/aggregate_results.py`](https://github.com/WoldringLabMSU/PLBAP_Reproducibility/blob/main/analysis/aggregate_results.py).
@@ -42,7 +43,7 @@ For each above model, per-complex CASF-2016 predictions and associcated preproce
 Scripts for plotting all manuscript figures, including intermediate bootstrapping, are included in [`analysis/`](https://github.com/WoldringLabMSU/PLBAP_Reproducibility/tree/main/analysis).
 
 ## Metadata
-Initial attempts at metadata parsing leveraged CLAUDE Code<sup>17</sup> to help create an interactive metadata logging script [`create_reports.py`](https://github.com/WoldringLabMSU/PLBAP_Reproducibility/blob/main/create_reports.py) which was used to generate the per-model metadata reports contained in [`json_reports`](https://github.com/WoldringLabMSU/PLBAP_Reproducibility/tree/main/json_reports).
+Initial attempts at metadata parsing leveraged CLAUDE Code<sup>18</sup> to help create an interactive metadata logging script [`create_reports.py`](https://github.com/WoldringLabMSU/PLBAP_Reproducibility/blob/main/create_reports.py) which was used to generate the per-model metadata reports contained in [`json_reports`](https://github.com/WoldringLabMSU/PLBAP_Reproducibility/tree/main/json_reports).
 
 ## References
 1. Meli, R., Anighoro, A., Bodkin, M. J., Morris, G. M., & Biggin, P. C. (2021). Learning protein-ligand binding affinity with atomic environment vectors. Journal of Cheminformatics, 13(1), 59.
@@ -61,4 +62,5 @@ Initial attempts at metadata parsing leveraged CLAUDE Code<sup>17</sup> to help 
 14. Moon, S., Hwang, S. Y., Lim, J., & Kim, W. Y. (2024). PIGNet2: a versatile deep learning-based protein–ligand interaction prediction model for binding affinity scoring and virtual screening. Digital Discovery, 3(2), 287-299.
 15. Wang, Y., Qiu, Z., Jiao, Q., Chen, C., Meng, Z., & Cui, X. (2021, December). Structure-based protein-drug affinity prediction with spatial attention mechanisms. In 2021 IEEE international conference on bioinformatics and biomedicine (BIBM) (pp. 92-97). IEEE.
 16. Wang, Y., Wei, Z., & Xi, L. (2022). Sfcnn: a novel scoring function based on 3D convolutional neural network for accurate and stable protein–ligand affinity prediction. BMC bioinformatics, 23(1), 222.
-17. Anthropic. (2026). Claude 4.6 Sonnet.
+17. Chen, D., Liu, J., & Wei, G. W. (2024). Multiscale topology-enabled structure-to-sequence transformer for protein–ligand interaction predictions. Nature Machine Intelligence, 6(7), 799-810.
+18. Anthropic. (2026). Claude 4.6 Sonnet.
