@@ -14,7 +14,7 @@ Pipelines published between 2021 and 2024 were included in our audit if they (1)
 5. Pretrained/finetuned model weights
 
 
-Of the 50 investigated models, only 16 models had all checklist items and, thus, were considered runnable. For these runnable models, we attempted to reproduce their published CASF-2016 inference performance. The following table shows the link to each model's original repository and our study fork for attempting reproduction. Edits to code were only made to add per-complex time logging, write per-complex predictions to a single csv, and enable command-line utility (largely to resolve hard coding). Otherwise, modifications were only made if code was otherwise non-functional (e.g., RDKit errors resulted in a portion of complexes not being featurized).
+Of the 50 investigated models, only 17 models had all checklist items and, thus, were considered runnable. For these runnable models, we attempted to reproduce their published CASF-2016 inference performance. The following table shows the link to each model's original repository and our study fork for attempting reproduction. Edits to code were only made to add per-complex time logging, write per-complex predictions to a single csv, and enable command-line utility (largely to resolve hard coding). Otherwise, modifications were only made if code was otherwise non-functional (e.g., RDKit errors resulted in a portion of complexes not being featurized).
 
 | Original Model Repository | Study Fork |
 | :--- | :--- |
