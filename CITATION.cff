@@ -1,0 +1,54 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: PLBAP_Reproducibility
+message: >-
+  If you use this dataset, please cite it using the metadata
+  from this file.
+type: dataset
+authors:
+  - given-names: Joelle
+    family-names: Eaves
+    email: jeaves@msu.edu
+    affiliation: Michigan State University
+    orcid: 'https://orcid.org/0000-0002-5918-5279'
+  - given-names: Annie
+    family-names: Needs
+    email: needsang@msu.edu
+    affiliation: Michigan State University
+  - given-names: Daniel
+    family-names: Woldring
+    email: woldring@msu.edu
+    affiliation: Michigan State University
+repository-code: 'https://github.com/WoldringLabMSU/PLBAP_Reproducibility'
+url: 'https://github.com/WoldringLabMSU/PLBAP_Reproducibility'
+abstract: >-
+  Protein-ligand binding affinity prediction (PLBAP) models
+  are routinely benchmarked on the CASF-2016 dataset with
+  Pearson correlation coefficient (PCC) as a common measure
+  of scoring power. Published PCC values are frequently
+  reused as baselines for cross-study comparisons. This
+  practice implicitly assumes that published pipelines
+  remain runnable and that reported metrics can be
+  independently verified. To examine this assumption, we
+  conducted a systematic reproducibility audit of 50 PLBAP
+  models published between 2021 and 2024 that reported
+  CASF-2016 scoring power. For each model, we attempted to
+  reproduce the authors' CASF-2016 inference using only
+  publicly available code, documentation, and pretrained
+  weights. To scaffold this audit and to offer a reusable
+  resource for the community, we introduce a minimal
+  five-item reproducibility checklist for PLBAP pipelines,
+  organized around the artifacts a researcher requires to
+  independently re-run inference: (1) a license, (2)
+  preprocessing and featurization, (3) training, and (4)
+  inference code; and (5) pretrained model weights. We find
+  that only 16/50 pipelines satisfied all checklist items to
+  be consistently runnable. Of those 16 runnable models,
+  only 9 were statistically reproducible (56% of models). We
+  document common gaps, highlight practices that most
+  reliably enabled independent reproduction, and propose the
+  checklist as a lightweight community standard for future
+  PLBAP releases.
+license: CC0-1.0
