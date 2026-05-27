@@ -1,0 +1,81 @@
+{
+  "schema_version": "2.2.0",
+  "model_name": "topoformer",
+  "literature": {
+    "title": "Multiscale topology-enabled structure-to-sequence transformer for protein\u2013ligand interaction predictions",
+    "year": 2024,
+    "journal": "Nature Machine Intelligence",
+    "doi": "https://doi.org/10.1038/s42256-024-00855-1",
+    "volume": "6",
+    "issue": null,
+    "data_linked": "yes",
+    "code_linked": "yes",
+    "training_set": "PDBbind v.2020 general",
+    "casf_benchmark": {
+      "year": 2016,
+      "n_complexes": 285,
+      "target": "pK",
+      "target_unit": null,
+      "target_normalized": null
+    },
+    "reported_scoring_power": {
+      "pearson_r": 0.881,
+      "notes": null
+    }
+  },
+  "artifacts": {
+    "data_repo": {
+      "link": "https://zenodo.org/records/10892800",
+      "doi": "https://zenodo.org/records/10892800",
+      "license": "CC BY 4.0",
+      "description": "Source code, input data, featurzied data, and results"
+    },
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/WeilabMSU/TopoFormer",
+      "license": "MIT",
+      "last_commit_date": "2025-11-25",
+      "has_readme": true,
+      "readme_description": null,
+      "install_instructions": true,
+      "explicit_versions": true,
+      "environment_file": false,
+      "install_script": false,
+      "preprocessing_scripts": true,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": true,
+      "notebook": false,
+      "example_input_data": "partial",
+      "example_intermediate_data": "yes",
+      "example_output_predictions": "yes",
+      "known_issues": null,
+      "study_fork": {
+        "link": "https://github.com/jeavesj/TopoFormer",
+        "changes_summary": "Resolved hard coded paths, added CLI utility, slurm submitable script"
+      }
+    }
+  },
+  "environment": {
+    "python_version": "3.9.25",
+    "conda_env_name": "topoformer",
+    "conda_env_file": "https://github.com/jeavesj/TopoFormer/blob/main/msu_hpcc_amd24-h200_environment.yml",
+    "cuda_toolkit": "12.9",
+    "hardware": "MSU HPCC amd24-H200"
+  },
+  "reproducibility": {
+    "status": "Runnable, not reproducible",
+    "troubleshooting_time": "6-8h",
+    "barriers_to_attempt": [],
+    "failure_modes": [
+      "missing_weights",
+      "missing_environment_spec",
+      "checkpoint_ambiguity"
+    ],
+    "failure_notes": "Only 3/10 fine-tuned model checkpoints were provided, and no explicit protocol was provided to evalute the multiple models over many runs as ambiguously described in the readme",
+    "reproduced_metrics": {
+      "pearson_r": 0.717
+    },
+    "checkpoint_used": "https://weilab.math.msu.edu/Downloads/TopoFormer/finetuned_casf2016_3models.tar.gz"
+  }
+}
