@@ -25,16 +25,39 @@
   },
   "artifacts": {
     "data_repo": null,
-    "code_repo": null
+    "code_repo": {
+      "availability_type": "github",
+      "link": "https://github.com/CSUBioGroup/CGraphDTA",
+      "license": "GPL-3.0",
+      "last_commit_date": "2024-05-16",
+      "has_readme": true,
+      "readme_description": "Software and database requirements, install instructions, and commands for prediction and training",
+      "install_instructions": true,
+      "explicit_versions": true,
+      "environment_file": true,
+      "install_script": false,
+      "preprocessing_scripts": false,
+      "inference_scripts": true,
+      "training_scripts": true,
+      "pretrained_weights": true,
+      "notebook": false,
+      "example_input_data": "yes",
+      "example_intermediate_data": "yes",
+      "example_output_predictions": "no",
+      "known_issues": null,
+      "study_fork": null
+    }
   },
   "environment": null,
   "reproducibility": {
     "status": "Not attempted",
     "troubleshooting_time": null,
     "barriers_to_attempt": [
-      "no_public_code"
+      "missing_preprocessing_code"
     ],
-    "failure_modes": [],
+    "failure_modes": [
+      "missing_preprocessing_code"
+    ],
     "failure_notes": null,
     "reproduced_metrics": null,
     "checkpoint_used": null
