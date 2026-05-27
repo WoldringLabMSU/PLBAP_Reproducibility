@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "SMPLIP-Score",
   "literature": {
     "title": "SMPLIP-Score: predicting ligand binding affinity from simple and interpretable on-the-fly interaction fingerprint pattern descriptors",
