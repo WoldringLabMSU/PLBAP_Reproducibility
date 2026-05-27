@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "ET-Score",
   "literature": {
     "title": "ET-score: Improving Protein-ligand Binding Affinity Prediction Based on Distance-weighted Interatomic Contact Features Using Extremely Randomized Trees Algorithm",
@@ -56,14 +56,16 @@
       }
     }
   },
-  "environment": null,
+  "environment": "https://github.com/jeavesj/ET_Score/blob/master/msu_hpcc_amd24-h200_environment.yml",
   "reproducibility": {
-    "status": null,
-    "troubleshooting_time": null,
+    "status": "Runnable, not reproducible",
+    "troubleshooting_time": "2-4h",
     "barriers_to_attempt": [],
     "failure_modes": [],
-    "failure_notes": null,
-    "reproduced_metrics": null,
-    "checkpoint_used": null
+    "failure_notes": "Bugs in featurization code throwing divide-by-zero issue for zero distances",
+    "reproduced_metrics": {
+      "pearson_r": 0.395
+    },
+    "checkpoint_used": "https://figshare.com/articles/software/ET-Score/23684538"
   }
 }
