@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "saCNN",
   "literature": {
     "title": "Structure-Based Protein-Drug Affinity Prediction with Spatial Attention Mechanisms",
@@ -28,7 +28,7 @@
     "code_repo": {
       "availability_type": "github",
       "link": "https://github.com/xfcui/saCNN",
-      "license": null,
+      "license": "MIT",
       "last_commit_date": "2022-06-09",
       "has_readme": true,
       "readme_description": null,
@@ -38,26 +38,28 @@
       "install_script": false,
       "preprocessing_scripts": true,
       "inference_scripts": true,
-      "training_scripts": false,
+      "training_scripts": true,
       "pretrained_weights": true,
       "notebook": false,
       "example_input_data": "partial",
       "example_intermediate_data": "partial",
       "example_output_predictions": "no",
       "known_issues": null,
-      "study_fork": null
+      "study_fork": "https://github.com/jeavesj/saCNN"
     }
   },
-  "environment": null,
+  "environment": "https://github.com/jeavesj/saCNN/blob/main/saCNN_environment.yml",
   "reproducibility": {
-    "status": "Not attempted",
-    "troubleshooting_time": null,
+    "status": "Statistically reproduced",
+    "troubleshooting_time": "4-6h",
     "barriers_to_attempt": [
       "missing_environment_spec"
     ],
     "failure_modes": [],
     "failure_notes": null,
-    "reproduced_metrics": null,
-    "checkpoint_used": null
+    "reproduced_metrics": {
+      "pearson_r": 0.862
+    },
+    "checkpoint_used": "https://github.com/jeavesj/saCNN/blob/main/checkpoint/model.pkl"
   }
 }
