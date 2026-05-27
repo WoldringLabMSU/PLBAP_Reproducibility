@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "ECIF",
   "literature": {
     "title": "Extended connectivity interaction features: improving binding affinity prediction through chemical description",
