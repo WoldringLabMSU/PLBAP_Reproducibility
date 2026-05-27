@@ -45,7 +45,9 @@
       "example_intermediate_data": "partial",
       "example_output_predictions": "no",
       "known_issues": null,
-      "study_fork": "https://github.com/jeavesj/saCNN"
+      "study_fork": {
+        "link": "https://github.com/jeavesj/saCNN",
+        "changes_summary": "Work around to avoid proprietary software for preprocessing, resultant preprocessing debugging"
     }
   },
     "environment": {
