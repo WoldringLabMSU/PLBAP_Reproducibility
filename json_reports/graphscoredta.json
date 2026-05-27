@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "GraphScoreDTA",
   "literature": {
     "title": "GraphscoreDTA: optimized graph neural network for protein\u2013ligand binding affinity prediction",
