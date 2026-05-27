@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "egGNN",
   "literature": {
     "title": "Edge-Gated Graph Neural Network for Predicting Protein-Ligand Binding Affinities",
@@ -38,7 +38,7 @@
       "install_script": false,
       "preprocessing_scripts": true,
       "inference_scripts": true,
-      "training_scripts": false,
+      "training_scripts": true,
       "pretrained_weights": true,
       "notebook": false,
       "example_input_data": "no",
@@ -51,14 +51,16 @@
       }
     }
   },
-  "environment": null,
+  "environment": "https://github.com/jeavesj/egGNN/blob/master/msu_hpcc_amd24-h200_environment.yml",
   "reproducibility": {
-    "status": null,
-    "troubleshooting_time": null,
-    "barriers_to_attempt": [],
-    "failure_modes": [],
-    "failure_notes": null,
-    "reproduced_metrics": null,
-    "checkpoint_used": null
+    "status": "Runnable, not reproducible",
+    "troubleshooting_time": "2-4h",
+    "barriers_to_attempt": ["missing_preprocessing_code"],
+    "failure_modes": ["missing_preprocessing_code"],
+    "failure_notes": "smiles parsing errors and no code for generating smiles from ligand structure files",
+    "reproduced_metrics": {
+      "pearson_r": 0.669
+    },
+    "checkpoint_used": "https://github.com/jeavesj/egGNN/blob/master/egGNN/checkpoint/16-8596.sav"
   }
 }
