@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "LigityScore",
   "literature": {
     "title": "LigityScore: A CNN-Based Method for\u00a0Binding Affinity Predictions",
