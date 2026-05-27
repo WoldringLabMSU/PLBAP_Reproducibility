@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "DAAP",
   "literature": {
     "title": "Distance plus attention for binding affinity prediction",
@@ -28,7 +28,7 @@
     "code_repo": {
       "availability_type": "gitlab",
       "link": "https://gitlab.com/mahnewton/daap",
-      "license": null,
+      "license": "MIT",
       "last_commit_date": "2023-11-20",
       "has_readme": true,
       "readme_description": null,
