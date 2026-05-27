@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "PerSpect ML",
   "literature": {
     "title": "Persistent spectral\u2013based machine learning (PerSpect ML) for protein-ligand binding affinity prediction",
