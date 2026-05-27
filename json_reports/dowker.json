@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "Dowker",
   "literature": {
     "title": "Dowker complex based machine learning (DCML) models for protein-ligand binding affinity prediction",
