@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "MSSDTA",
   "literature": {
     "title": "Predicting Protein-Ligand Binding Affinity with Multi-Scale Structural Features",
