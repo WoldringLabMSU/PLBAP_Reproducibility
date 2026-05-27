@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "DeepBindGCN",
   "literature": {
     "title": "DeepBindGCN: Integrating Molecular Vector Representation with Graph Convolutional Neural Networks for Protein\u2013Ligand Interaction Prediction",
