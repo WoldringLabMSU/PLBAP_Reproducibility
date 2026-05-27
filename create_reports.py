@@ -55,7 +55,7 @@ def wrap(text):
 
 # ─── Controlled vocabularies ──────────────────────────────────────────────────
 
-SCHEMA_VERSION = "2.1.0"
+SCHEMA_VERSION = "2.2.0"
 
 TRISTATES         = ["yes", "no", "partial", "unknown"]
 STATUSES          = ["Exactly reproduced", "Statistically reproduced",
