@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "ConBAP",
   "literature": {
     "title": "Enhancing Generalizability in Protein\u2013Ligand Binding Affinity Prediction with Multimodal Contrastive Learning",
@@ -58,13 +58,13 @@
   },
   "environment": null,
   "reproducibility": {
-    "status": "Poor",
+    "status": "Runnable, not reproducible",
     "troubleshooting_time": "2-4h",
     "barriers_to_attempt": [],
     "failure_modes": [],
     "failure_notes": "Preprocessing bugs likely culprits for irreproducibility... had to add fallbacks for RDKit errors.",
     "reproduced_metrics": {
-      "pearson_r": 0.694
-    },    "checkpoint_used": null
+      "pearson_r": 0.424
+    },    "checkpoint_used": "https://github.com/jeavesj/ConBAP/blob/main/supervised/model/20231007_111336_ConBAP_repeat0/model/epoch-292%2C%20train_loss-0.1220%2C%20train_rmse-0.3493%2C%20valid_rmse-1.1663%2C%20valid_pr-0.7788.pt"
   }
 }
