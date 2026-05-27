@@ -38,7 +38,7 @@
       "install_script": false,
       "preprocessing_scripts": true,
       "inference_scripts": true,
-      "training_scripts": false,
+      "training_scripts": true,
       "pretrained_weights": true,
       "notebook": false,
       "known_issues": null,
