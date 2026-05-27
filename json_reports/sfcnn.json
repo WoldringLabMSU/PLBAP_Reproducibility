@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "SFCNN",
   "literature": {
     "title": "Sfcnn: a novel scoring function based on 3D convolutional neural network for accurate and stable protein\u2013ligand affinity prediction",
@@ -51,14 +51,22 @@
       }
     }
   },
-  "environment": null,
+    "environment": {
+    "python_version": "2.7.18",
+    "conda_env_name": "sfcnn",
+    "conda_env_file": "https://github.com/jeavesj/Sfcnn/blob/main/msu_hpcc_amd24-h200_environment.yml",
+    "cuda_toolkit": null,
+    "hardware": "MSU HPCC amd20-V100"
+  },
   "reproducibility": {
-    "status": null,
-    "troubleshooting_time": null,
+    "status": "Statistically reproduced",
+    "troubleshooting_time": "<2h",
     "barriers_to_attempt": [],
     "failure_modes": [],
     "failure_notes": null,
-    "reproduced_metrics": null,
-    "checkpoint_used": null
+    "reproduced_metrics": {
+      "pearson_r": 0.789
+    },
+    "checkpoint_used": "https://github.com/jeavesj/Sfcnn/blob/main/weights_22_112-0.0083.h5"
   }
 }
