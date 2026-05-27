@@ -56,7 +56,13 @@
       }
     }
   },
-  "environment": "https://github.com/jeavesj/ET_Score/blob/master/msu_hpcc_amd24-h200_environment.yml",
+    "environment": {
+    "python_version": "3.8.20",
+    "conda_env_name": "etscore_new",
+    "conda_env_file":"https://github.com/jeavesj/ET_Score/blob/master/msu_hpcc_amd24-h200_environment.yml",
+    "cuda_toolkit": null,
+    "hardware": "MSU HPCC amd24-H200"
+  },
   "reproducibility": {
     "status": "Runnable, not reproducible",
     "troubleshooting_time": "2-4h",
