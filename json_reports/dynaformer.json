@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "Dynaformer",
   "literature": {
     "title": "From Static to Dynamic Structures: Improving Binding Affinity Prediction with Graph-Based Deep Learning",
@@ -64,7 +64,7 @@
     "hardware": "MSU HPCC amd24-H200"
   },
   "reproducibility": {
-    "status": "Fully reproduced",
+    "status": "Statistically reproduced",
     "troubleshooting_time": "4-6h",
     "barriers_to_attempt": [],
     "failure_modes": [],
