@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "PPS-ML",
   "literature": {
     "title": "PersistenPersistent Path-Spectral (PPS) Based Machine Learning for Protein\u2013Ligand Binding Affinity PredictionClick to copy article link",
