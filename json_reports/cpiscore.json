@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "CPIScore",
   "literature": {
     "title": "CPIScore: A Deep Learning Approach for Rapid Scoring and Interpretation of Protein\u2013Ligand Binding Interactions",
