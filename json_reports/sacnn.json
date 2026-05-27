@@ -48,7 +48,13 @@
       "study_fork": "https://github.com/jeavesj/saCNN"
     }
   },
-  "environment": "https://github.com/jeavesj/saCNN/blob/main/saCNN_environment.yml",
+    "environment": {
+    "python_version": "3.10.20",
+    "conda_env_name": "saCNN",
+    "conda_env_file": "https://github.com/jeavesj/saCNN/blob/main/saCNN_environment.yml",
+    "cuda_toolkit": "12",
+    "hardware": "MSU HPCC amd24-H200"
+  },
   "reproducibility": {
     "status": "Statistically reproduced",
     "troubleshooting_time": "4-6h",
