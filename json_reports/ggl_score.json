@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "GGL-Score",
   "literature": {
     "title": "Geometric graph learning with extended atom-types features for protein-ligand binding affinity prediction",
