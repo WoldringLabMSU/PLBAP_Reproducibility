@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "delta_LinF9_XGB",
   "literature": {
     "title": "Delta Machine Learning to Improve Scoring-Ranking-Screening Performances of Protein\u2013Ligand Scoring Functions",
@@ -38,7 +38,7 @@
       "install_script": false,
       "preprocessing_scripts": true,
       "inference_scripts": true,
-      "training_scripts": false,
+      "training_scripts": true,
       "pretrained_weights": true,
       "notebook": true,
       "example_input_data": "partial",
@@ -48,18 +48,16 @@
       "study_fork": null
     }
   },
-  "environment": null,
+  "environment": "https://github.com/jeavesj/delta_LinF9_XGB/blob/main/msu_hpcc_amd24-h200_environment.yml",
   "reproducibility": {
-    "status": "Not attempted",
-    "troubleshooting_time": null,
+    "status": "Statistically reproduced",
+    "troubleshooting_time": "2-4h",
     "barriers_to_attempt": [],
-    "failure_modes": [
-      "checkpoint_ambiguity",
-      "undocumented_data_format",
-      "broken_dependencies"
-    ],
+    "failure_modes": [],
     "failure_notes": null,
-    "reproduced_metrics": null,
-    "checkpoint_used": null
+    "reproduced_metrics": {
+      "pearson_r": 0.840
+    },
+    "checkpoint_used": "https://github.com/jeavesj/delta_LinF9_XGB/tree/main/saved_model"
   }
 }
