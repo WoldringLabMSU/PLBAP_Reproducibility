@@ -51,7 +51,13 @@
       }
     }
   },
-  "environment": "https://github.com/jeavesj/DEAttentionDTA/blob/main/msu_hpcc_amd24-h200_environment.yml",
+    "environment": {
+    "python_version": "3.9.12",
+    "conda_env_name": "pytorch",
+    "conda_env_file": "https://github.com/jeavesj/DEAttentionDTA/blob/main/msu_hpcc_amd24-h200_environment.yml",
+    "cuda_toolkit": "11.3.1",
+    "hardware": "MSU HPCC amd24-H200"
+  },
   "reproducibility": {
     "status": "Statistically reproduced",
     "troubleshooting_time": "2-4h",
