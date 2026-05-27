@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "BAPA",
   "literature": {
     "title": "Binding affinity prediction for protein\u2013ligand complex using deep attention mechanism based on intermolecular interactions",
