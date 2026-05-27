@@ -58,8 +58,8 @@ def wrap(text):
 SCHEMA_VERSION = "2.1.0"
 
 TRISTATES         = ["yes", "no", "partial", "unknown"]
-STATUSES          = ["Fully reproduced", "Nearly reproduced", "Partial", "Poor",
-                     "Not reproducible", "Not attempted", "Unknown"]
+STATUSES          = ["Exactly reproduced", "Statistically reproduced",
+                     "Runnable, not reproducible", "Not attempted", "Unknown"]
 TIMES             = ["<2h", "2-4h", "4-6h", "6-8h", "8-12h", ">12h"]
 AVAILABILITY_TYPES= ["github", "gitlab", "zenodo_code", "supplementary_only",
                      "web_server_only", "none"]
