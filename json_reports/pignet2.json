@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "PIGNet2",
   "literature": {
     "title": "PIGNet2: a versatile deep learning-based protein\u2013ligand interaction prediction model for binding affinity scoring and virtual screening",
@@ -56,14 +56,16 @@
       }
     }
   },
-  "environment": null,
+  "environment": "https://github.com/jeavesj/PIGNet2/blob/main/msu_hpcc_amd24-h200_environment.yml",
   "reproducibility": {
-    "status": null,
-    "troubleshooting_time": null,
+    "status": "Runnable, not reproducible",
+    "troubleshooting_time": "2-4h",
     "barriers_to_attempt": [],
-    "failure_modes": [],
-    "failure_notes": null,
-    "reproduced_metrics": null,
-    "checkpoint_used": null
+    "failure_modes": ["broken_dependencies", "checkpoint_ambiguity"],
+    "failure_notes": "Dependencies incompatible with modern software stacks; preprocessing bugs related to mol reading",
+    "reproduced_metrics": {
+      "pearson_r": 0.505
+    },
+    "checkpoint_used": "https://github.com/jeavesj/PIGNet2/blob/main/src/ckpt/pda_0.pt"
   }
 }
