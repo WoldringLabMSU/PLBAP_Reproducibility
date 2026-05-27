@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "MM-DRPNet",
   "literature": {
     "title": "MM-DRPNet: A multimodal dynamic radial partitioning network for enhanced protein\u2013ligand binding affinity prediction",
