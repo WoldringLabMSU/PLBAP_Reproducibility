@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "aescore",
   "literature": {
     "title": "Learning protein-ligand binding affinity with atomic environment vectors",
@@ -62,7 +62,7 @@
     "hardware": "MSU HPCC amd20-V100"
   },
   "reproducibility": {
-    "status": "Poor",
+    "status": "Runnable, not reproducible",
     "troubleshooting_time": "2-4h",
     "barriers_to_attempt": [],
     "failure_modes": [
