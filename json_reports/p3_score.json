@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "model_name": "P3-Score",
   "literature": {
     "title": "Development of a polynomial scoring function P3-Score for improved scoring and ranking powers",
