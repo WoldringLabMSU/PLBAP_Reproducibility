@@ -62,7 +62,7 @@
   },
   "reproducibility": {
     "status": "Statistically reproduced",
-    "troubleshooting_time": "6-8h",
+    "troubleshooting_time": "2-4h",
     "barriers_to_attempt": [],
     "failure_modes": [],
     "failure_notes": null,
